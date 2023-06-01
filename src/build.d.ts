@@ -1,0 +1,1 @@
+type IconName = "elephant" | "loading" | "triangle-exclamation" | "waves" | "checkmark" | "maestro";
