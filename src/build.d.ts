@@ -1,1 +1,1 @@
-type IconName = "checkmark"|"elephant"|"loading"|"maestro"|"triangle-exclamation";
+type IconName = "checkmark" | "elephant" | "loading" | "maestro" | "triangle-exclamation" | "ferris-plain" | "svelte-plain" | "folder" | "playground" | "tetris";

@@ -16,12 +16,12 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
   --color-surface-2: #363639;
 
   --h-nm-100: #{clamp(misc.rem(14), 1vw, misc.rem(24))};
-  --h-nm-200: #{clamp(misc.rem(18), 1.5vw, misc.rem(32))};
-  --h-nm-300: #{clamp(misc.rem(20), 2vw, misc.rem(36))};
+  --h-nm-200: #{clamp(misc.rem(18), 1.5vw, misc.rem(26))};
+  --h-nm-300: #{clamp(misc.rem(20), 1.7vw, misc.rem(30))};
   --h-md-100: #{clamp(misc.rem(22), 2.5vw, misc.rem(38))};
   --h-md-200: #{clamp(misc.rem(24), 3vw, misc.rem(40))};
   --h-lg-100: #{clamp(misc.rem(28), 4vw, misc.rem(42))};
-  --h-lg-200: #{clamp(misc.rem(34), 6vw, misc.rem(46))};
+  --h-lg-200: #{clamp(misc.rem(34), 6vw, misc.rem(50))};
   --h-xl-100: #{clamp(misc.rem(45), 12vw, misc.rem(60))};
 
   --p-sm-50: #{clamp(misc.rem(10), 0.7vw, misc.rem(11))};
@@ -53,10 +53,10 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
   --area-lg-200: #{clamp(misc.rem(420), 90vw, misc.rem(550))};
   --area-lg-100: #{clamp(misc.rem(320), 75vw, misc.rem(500))};
   --area-md-100: #{clamp(misc.rem(180), 50vw, misc.rem(400))};
-  --area-nm-100: #{clamp(misc.rem(150), 25vw, misc.rem(360))};
+  --area-nm-100: #{clamp(misc.rem(280), 25vw, misc.rem(360))};
   --area-nm-50: #{clamp(misc.rem(100), 15vw, misc.rem(320))};
   --area-sm-100: #{clamp(misc.rem(70), 10vw, misc.rem(300))};
-  --area-sm-50: #{clamp(misc.rem(36), 7vw, misc.rem(150))};
+  --area-sm-50: #{clamp(misc.rem(50), 3vw, misc.rem(100))};
 
   --border-nm-100: #{clamp(misc.rem(1), 0.25vw, misc.rem(2))};
   --border-sm-100: #{clamp(misc.rem(0.5), 0.15vw, misc.rem(0.75))};

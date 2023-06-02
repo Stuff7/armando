@@ -25,11 +25,13 @@
       <p>26</p>
     </div>
     <Divider />
-      <ProgressRing progress={100} />
-      <ProgressRing progress={100} />
+      <div class="Sidebar__languages">
+        <ProgressRing label="Spanish" progress={100} />
+        <ProgressRing label="English" progress={100} />
+      </div>
     <Divider />
     <div class="Sidebar__work">
-      <Icon name="maestro" size="4vw" />
+      <Icon name="maestro" />
       <p>Worked at Maestro Interactive for 3 years</p>
     </div>
     <Divider />
@@ -106,10 +108,20 @@
         color: var(--color-light);
     }
 
+    &__languages {
+      display: flex;
+      gap: var(--spacing-nm-100);
+      justify-content: center;
+      & :global(.ProgressRing) {
+        flex: 0;
+      }
+    }
+
     &__work {
       display: flex;
       gap: var(--spacing-nm-100);
       align-items: center;
+      --icon-size: var(--area-sm-50);
     }
   }
 </style>
