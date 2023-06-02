@@ -18,7 +18,18 @@
     height: 100%;
     padding: var(--spacing-lg-200);
     overflow: hidden auto;
-    display: flex;
+    display: grid;
+    grid-template:
+      "a b" 1fr
+      "a b" 1fr / max-content 1fr;
     gap: var(--spacing-lg-200);
+
+    & > :global(.Sidebar) {
+      grid-area: a;
+    }
+
+    & > :global(.Content) {
+      grid-area: b;
+    }
   }
 </style>

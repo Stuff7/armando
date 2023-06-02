@@ -3,6 +3,7 @@
   import Divider from "components/Divider.svelte";
   import IconLabel from "./IconLabel.svelte";
   import Icon from "components/Icon.svelte";
+  import ProgressRing from "components/ProgressRing.svelte";
 </script>
 
 <aside class="Sidebar">
@@ -23,6 +24,9 @@
       <strong>Age:</strong>
       <p>26</p>
     </div>
+    <Divider />
+      <ProgressRing progress={100} />
+      <ProgressRing progress={100} />
     <Divider />
     <div class="Sidebar__work">
       <Icon name="maestro" size="4vw" />
