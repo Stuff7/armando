@@ -11,7 +11,7 @@
 <article class="ProjectCard">
   <section class="ProjectCard__languages">
     {#each sources as source}
-      <Icon name={source.icon} />
+      <Icon name={source.icon} tooltip={source.language} />
     {/each}
   </section>
   <section class="ProjectCard__logo">

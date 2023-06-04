@@ -63,15 +63,15 @@
   @use "style/color";
 
   .TooltipFromAction {
-    $tooltip-bg: color.shade(--color-tertiary, 400, $a: 0.85);
+    $tooltip-bg: var(--color-dark);
     background: $tooltip-bg;
-    color: var(--color-tertiary-900);
+    color: var(--color-light);
     @include misc.shadow(var(--color-tertiary-300));
     @include misc.border-radius;
     padding: var(--spacing-sm-100);
     position: absolute;
     width: max-content;
-    min-width: clamp(misc.rem(48), 4vw, misc.rem(96));
+    min-width: clamp(misc.rem(16), 2vw, misc.rem(96));
     max-width: clamp(misc.rem(220), 80vw, misc.rem(900));
     pointer-events: all;
 
