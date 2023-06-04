@@ -45,7 +45,8 @@
     color: var(--color-dark);
     border-radius: var(--radius-nm-200);
     position: relative;
-    min-width: var(--area-nm-100);
+    min-width: var(--area-md-100);
+    max-width: var(--area-lg-200);
 
     &__info {
       display: flex;

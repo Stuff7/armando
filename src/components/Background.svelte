@@ -2,11 +2,11 @@
   import Icon from "components/Icon.svelte";
 </script>
 
+<div class="Background__logo">
+  <Icon name="elephant" />
+  <span>I can design :D</span>
+</div>
 <div class="Background">
-  <div class="Background__logo">
-    <Icon name="elephant" />
-    <span>I can design :D</span>
-  </div>
   <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
     <defs>
@@ -37,9 +37,9 @@
       --icon-color: var(--color-dark);
       --icon-size: var(--area-nm-100);
       position: absolute;
-      right: calc(var(--spacing-lg-200) * 2);
-      top: calc(var(--spacing-lg-200) * 2.5);
-      z-index: 1;
+      right: calc(var(--spacing-lg-100) * 3);
+      top: calc(var(--spacing-lg-200) * 2);
+      z-index: 0;
       color: white;
       display: flex;
       flex-direction: column;

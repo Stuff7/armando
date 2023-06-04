@@ -74,6 +74,7 @@
 
       div {
         display: grid;
+        justify-items: center;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-nm-200);
         overflow: auto hidden;
@@ -85,6 +86,7 @@
       flex-direction: column;
       gap: var(--spacing-nm-100);
       width: 50%;
+      max-width: var(--area-lg-200);
       text-align: center;
       margin-left: var(--spacing-lg-200);
 

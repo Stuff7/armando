@@ -15,6 +15,9 @@
 <style>
   main {
     width: 100%;
+    max-width: var(--area-xl-100);
+    margin-inline: auto;
+    position: relative;
     padding: var(--spacing-lg-200);
     display: grid;
     grid-template: "a b" 1fr / max-content 1fr;
