@@ -35,10 +35,10 @@
 
     &__logo {
       --icon-color: var(--color-dark);
-      --icon-size: var(--area-nm-50);
+      --icon-size: var(--area-nm-100);
       position: absolute;
-      right: calc(var(--spacing-lg-200) * 4);
-      top: calc(var(--spacing-lg-200) * 3);
+      right: calc(var(--spacing-lg-200) * 3);
+      top: calc(var(--spacing-lg-200) * 2);
       z-index: 1;
       color: white;
       display: flex;

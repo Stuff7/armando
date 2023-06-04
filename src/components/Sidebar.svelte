@@ -58,10 +58,13 @@
 </aside>
 
 <style lang="scss">
+  @use "style/misc";
+
   .Sidebar {
     width: clamp(16rem, 20vw, 25rem);
     background: var(--color-surface-1);
     color: white;
+    @include misc.shadow;
 
     section {
       display: flex;

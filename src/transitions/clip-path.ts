@@ -1,4 +1,4 @@
-import { circInOut } from 'svelte/easing';
+import { circInOut } from "svelte/easing";
 
 export default function clipPath<T extends HTMLElement>(_: T, {
   delay = 0,

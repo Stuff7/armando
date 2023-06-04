@@ -1,5 +1,5 @@
-import type { InOut, LineSegment, Point, Position, RectSize } from 'types/math';
-import { UnsupportedValueError } from 'utils/meta';
+import type { InOut, LineSegment, Point, Position, RectSize } from "types/math";
+import { UnsupportedValueError } from "utils/meta";
 
 export function* range(start: number, stop?: number, step = 1) {
   let loopStart = start;
@@ -10,7 +10,7 @@ export function* range(start: number, stop?: number, step = 1) {
   }
 
   if (!step) {
-    throw new RangeError('range() step argument invalid');
+    throw new RangeError("range() step argument invalid");
   }
 
   if (step > 0) {
@@ -28,11 +28,11 @@ export function* range(start: number, stop?: number, step = 1) {
 
 export function invertPosition(position: Position): Position {
   switch (position) {
-    case 'bottom': return 'top';
-    case 'top': return 'bottom';
-    case 'left': return 'right';
-    case 'right': return 'left';
-    default: return 'none';
+    case "bottom": return "top";
+    case "top": return "bottom";
+    case "left": return "right";
+    case "right": return "left";
+    default: return "none";
   }
 }
 
@@ -62,25 +62,25 @@ function radToDeg(rad: number) {
   return rad * 180 / Math.PI;
 }
 
-function degToRad(deg: number) {
+export function degToRad(deg: number) {
   return deg * Math.PI / 180;
 }
 
-export function circleSquareSide(radius: number, position: InOut = 'outer') {
-  if (position === 'inner') {
+export function circleSquareSide(radius: number, position: InOut = "outer") {
+  if (position === "inner") {
     return radius * 2 / Math.sqrt(2);
   }
-  if (position === 'outer') {
+  if (position === "outer") {
     return radius * 2;
   }
   throw new UnsupportedValueError(position);
 }
 
-export function squareCircumcircleRadius(square: RectSize, position: InOut = 'outer') {
-  if (position === 'inner') {
+export function squareCircumcircleRadius(square: RectSize, position: InOut = "outer") {
+  if (position === "inner") {
     return square.width / 2;
   }
-  if (position === 'outer') {
+  if (position === "outer") {
     return Math.hypot(square.width, square.height) / 2;
   }
   throw new UnsupportedValueError(position);
@@ -115,4 +115,44 @@ export function pointAtLength(line: LineSegment, length: number): Point {
 
 export function pointFromAngle(angle: number, length: number, { x, y }: Point = { x: 0, y: 0 }): Point {
   return { x: x + length * Math.cos(degToRad(angle)), y: y + length * Math.sin(degToRad(angle)) };
+}
+
+function matrixTimes(
+  [[a, b], [c, d]]: [[number, number], [number, number]],
+  [x, y]: [number, number],
+): [number, number] {
+  return [a * x + b * y, c * x + d * y];
+}
+
+function rotateMatrix(x: number): [[number, number], [number, number]] {
+  return [[Math.cos(x), -Math.sin(x)], [Math.sin(x), Math.cos(x)]];
+}
+
+function addVec([a1, a2]: [number, number], [b1, b2]: [number, number]) {
+  return [a1 + b1, a2 + b2];
+}
+
+/**
+ * @param cx center of circle in x axis
+ * @param cy center of circle in y axis
+ * @param rx major radius
+ * @param ry minor radius
+ * @param t1 start angle in radians
+ * @param d sweep angle (positive) in radians
+ * @param cr circle rotation in radians
+ * @returns an SVG path element that represents an ellipse
+ */
+export function createArcPath(
+  [cx, cy]: [number, number],
+  [rx, ry]: [number, number],
+  [t1, d]: [number, number],
+  cr: number,
+) {
+  const dd = d % (2 * Math.PI);
+  const rotMatrix = rotateMatrix(cr);
+  const [sX, sY] = addVec(matrixTimes(rotMatrix, [rx * Math.cos(t1), ry * Math.sin(t1)]), [cx, cy]);
+  const [eX, eY] = addVec(matrixTimes(rotMatrix, [rx * Math.cos(t1 + dd), ry * Math.sin(t1 + dd)]), [cx, cy]);
+  const fA = dd > Math.PI ? 1 : 0;
+  const fS = dd > 0 ? 1 : 0;
+  return `M ${sX} ${sY} A ${[rx, ry, cr / 2 * Math.PI * 360, fA, fS, eX, eY].join(" ")}`;
 }

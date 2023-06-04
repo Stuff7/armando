@@ -42,9 +42,19 @@
     }
 
     &__progress {
-      width: var(--progress-bar-progress, 0%);
       height: 100%;
       background: var(--color-accent-1);
+      animation: load 1s linear forwards;
+    }
+
+    @keyframes load {
+      0% {
+        width: 0%;
+      }
+
+      100% {
+        width: var(--progress-bar-progress, 0%);
+      }
     }
   }
 </style>

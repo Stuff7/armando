@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import ProjectCard, { type Source, type Status } from "components/ProjectCard.svelte";
+  import RingChart from "components/RingChart.svelte";
 
   const PROJECTS: {
     name: string,
@@ -73,19 +74,51 @@
       {/each}
     </div>
   </section>
+  <section class="Content__projects-breakdown">
+    <h1>GitHub Projects Breakdown</h1>
+    <RingChart
+      radius="var(--area-lg-200)"
+      data={[{
+        label: "Rust",
+        color: "#dea584",
+        percentage: 30,
+      }, {
+        label: "Typescript",
+        color: "#2b7489",
+        percentage: 20,
+      }, {
+        label: "Svelte",
+        color: "#ff3e00",
+        percentage: 20,
+      }, {
+        label: "C++",
+        color: "#f34b7d",
+        percentage: 10,
+      }, {
+        label: "Python",
+        color: "#3572A5",
+        percentage: 10,
+      }]}
+    />
+  </section>
 </article>
 
 <style lang="scss">
+  @use "style/misc";
+
   .Content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg-200);
     background: #0008;
     border-radius: var(--spacing-nm-100);
-    flex: 1;
+    overflow: hidden;
     backdrop-filter: blur(1.5px);
     color: white;
     padding: calc(var(--spacing-lg-200) * 2) var(--spacing-lg-200);
+    height: max-content;
+    min-height: 100%;
+    @include misc.shadow;
 
     &__recent-work {
       display: flex;
@@ -100,6 +133,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-nm-200);
+        overflow: auto hidden;
       }
     }
 
@@ -125,6 +159,16 @@
 
       summary {
         font-size: var(--h-nm-200);
+      }
+    }
+
+    &__projects-breakdown {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: var(--spacing-md-200);
+      :global(.RingChart) {
+        margin-inline: auto;
       }
     }
   }
