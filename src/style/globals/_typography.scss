@@ -16,7 +16,7 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
   --color-surface-2: #363639;
 
   --h-nm-100: #{clamp(misc.rem(14), 1vw, misc.rem(24))};
-  --h-nm-200: #{clamp(misc.rem(18), 1.5vw, misc.rem(26))};
+  --h-nm-200: #{clamp(misc.rem(16), 1.5vw, misc.rem(26))};
   --h-nm-300: #{clamp(misc.rem(20), 1.7vw, misc.rem(30))};
   --h-md-100: #{clamp(misc.rem(22), 2.5vw, misc.rem(38))};
   --h-md-200: #{clamp(misc.rem(24), 3vw, misc.rem(40))};

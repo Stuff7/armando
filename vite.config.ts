@@ -13,7 +13,7 @@ function createTypeDefinitions(path: string) {
   const filenames = readdirSync(path).filter(function (file) {
     return !statSync(join(path, file)).isDirectory() && file.endsWith(".svg");
   });
-  const iconName = filenames.map(filename => `"${filename.slice(0, -4)}"`).join("|");
+  const iconName = filenames.map(filename => `"${filename.slice(0, -4)}"`).join(" |\n");
   writeFile("./src/build.d.ts", `type IconName = ${iconName};`, (err) => {
     if(err) {
       return console.error("Failed to create build definition file", err);
@@ -37,7 +37,7 @@ export default defineConfig({
         aliases[dir] = path.resolve(__dirname, "src", dir);
         return aliases;
       }, {}),
-      "armando": path.resolve(__dirname, "src"),
+      "~": path.resolve(__dirname, "src"),
     },
   },
   server: {

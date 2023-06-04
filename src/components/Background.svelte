@@ -37,8 +37,8 @@
       --icon-color: var(--color-dark);
       --icon-size: var(--area-nm-100);
       position: absolute;
-      right: calc(var(--spacing-lg-200) * 3);
-      top: calc(var(--spacing-lg-200) * 2);
+      right: calc(var(--spacing-lg-200) * 2);
+      top: calc(var(--spacing-lg-200) * 2.5);
       z-index: 1;
       color: white;
       display: flex;

@@ -1,60 +1,3 @@
-<script lang="ts" context="module">
-  import ProjectCard, { type Source, type Status } from "components/ProjectCard.svelte";
-  import RingChart from "components/RingChart.svelte";
-
-  const PROJECTS: {
-    name: string,
-    status: Status,
-    description: string,
-    logo: IconName,
-    sources: Source[],
-  }[] = [{
-    name: "Fylvur",
-    status: "completed",
-    description: "A file explorer that aims to offer a user-friendly \
-    interface for playing videos and displaying images within a local network.",
-    logo: "folder",
-    sources: [{
-      icon: "svelte-plain",
-      language: "svelte",
-      repoLink: "https://github.com/Stuff7/fylvur-front",
-      repoName: "fylvur-front",
-    }, {
-      icon: "ferris-plain",
-      language: "rust",
-      repoLink: "https://github.com/Stuff7/fylvur-rs",
-      repoName: "fylvur-rs",
-    }],
-  }, {
-    name: "Svelte Playground",
-    status: "completed",
-    description: "Wide range of UI components and tools written in Svelte. \
-    Additionally, it includes an Axum back-end to interact with Google Drive.",
-    logo: "playground",
-    sources: [{
-      icon: "svelte-plain",
-      language: "svelte",
-      repoLink: "https://github.com/Stuff7/svelte-playground",
-      repoName: "svelte-playground",
-    }, {
-      icon: "ferris-plain",
-      language: "rust",
-      repoLink: "https://github.com/Stuff7/playground-api",
-      repoName: "playground-api",
-    }],
-  }, {
-    name: "Bevy Snake",
-    status: "in progress",
-    description: "A captivating blend of Snake and Tetris games powered by the Bevy engine.",
-    logo: "tetris",
-    sources: [{
-      icon: "ferris-plain",
-      language: "rust",
-      repoLink: "https://github.com/Stuff7/bevy_snake",
-      repoName: "bevy_snake",
-    }],
-  }];
-</script>
 <article class="Content">
   <section class="Content__summary">
     <h1>I'm a software engineer</h1>
@@ -77,7 +20,7 @@
   <section class="Content__projects-breakdown">
     <h1>GitHub Projects Breakdown</h1>
     <RingChart
-      radius="var(--area-lg-200)"
+      radius="min(40vw, 80%)"
       data={[{
         label: "Rust",
         color: "#dea584",
@@ -173,3 +116,61 @@
     }
   }
 </style>
+
+<script lang="ts" context="module">
+  import ProjectCard, { type Source, type Status } from "components/ProjectCard.svelte";
+  import RingChart from "components/RingChart.svelte";
+
+  const PROJECTS: {
+    name: string,
+    status: Status,
+    description: string,
+    logo: IconName,
+    sources: Source[],
+  }[] = [{
+    name: "Fylvur",
+    status: "completed",
+    description: "A file explorer that aims to offer a user-friendly \
+    interface for playing videos and displaying images within a local network.",
+    logo: "folder",
+    sources: [{
+      icon: "svelte-plain",
+      language: "svelte",
+      repoLink: "https://github.com/Stuff7/fylvur-front",
+      repoName: "fylvur-front",
+    }, {
+      icon: "ferris-plain",
+      language: "rust",
+      repoLink: "https://github.com/Stuff7/fylvur-rs",
+      repoName: "fylvur-rs",
+    }],
+  }, {
+    name: "Svelte Playground",
+    status: "completed",
+    description: "Wide range of UI components and tools written in Svelte. \
+    Additionally, it includes an Axum back-end to interact with Google Drive.",
+    logo: "playground",
+    sources: [{
+      icon: "svelte-plain",
+      language: "svelte",
+      repoLink: "https://github.com/Stuff7/svelte-playground",
+      repoName: "svelte-playground",
+    }, {
+      icon: "ferris-plain",
+      language: "rust",
+      repoLink: "https://github.com/Stuff7/playground-api",
+      repoName: "playground-api",
+    }],
+  }, {
+    name: "Bevy Snake",
+    status: "in progress",
+    description: "A captivating blend of Snake and Tetris games powered by the Bevy engine.",
+    logo: "tetris",
+    sources: [{
+      icon: "ferris-plain",
+      language: "rust",
+      repoLink: "https://github.com/Stuff7/bevy_snake",
+      repoName: "bevy_snake",
+    }],
+  }];
+</script>

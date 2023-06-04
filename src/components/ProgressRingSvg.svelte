@@ -7,7 +7,7 @@
 
 <script lang="ts">
   export let progress = 85;
-  export let stroke = "var(--spacing-lg-100)";
+  export let stroke = "var(--spacing-md-200)";
   export let radius = "var(--area-nm-100)";
   export let color = "var(--color-accent-1)";
   export let scale = 1;
@@ -70,7 +70,7 @@
 <style lang="scss">
   .ProgressRingSvg {
     width: var(--ring-chart-radius);
-    height: var(--ring-chart-radius);
+    aspect-ratio: 1 / 1;
     transform: scale(var(--ring-chart-scale));
     transform-origin: center;
   }
