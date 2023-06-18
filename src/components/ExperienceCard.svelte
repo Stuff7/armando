@@ -21,6 +21,7 @@
     border-inline: 1px solid var(--color-light);
     padding: var(--spacing-nm-100);
     color: var(--color-light);
+    height: 100%;
 
     strong {
       color: var(--color-accent-2);
