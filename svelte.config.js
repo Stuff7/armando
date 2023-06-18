@@ -1,6 +1,9 @@
 import sveltePreprocess from "svelte-preprocess";
 
 export default {
+  compilerOptions: {
+    cssHash: ({ hash, css }) => `css-${hash(css)}`,
+  },
   preprocess: sveltePreprocess({
     scss: {
       importer(url) {
