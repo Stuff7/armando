@@ -82,12 +82,16 @@
 
       & .inline {
         position: absolute;
-        bottom: 50%;
+        top: calc(-50% - var(--spacing-nm-100));
+        translate: 0 50%;
       }
 
-      & > button:disabled {
-        pointer-events: none;
-        opacity: 0.5;
+      & > button {
+        height: 100%;
+        &:disabled {
+          pointer-events: none;
+          opacity: 0.5;
+        }
       }
     }
 
