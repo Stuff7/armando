@@ -1,59 +1,96 @@
-<script lang="ts">
+<script lang="ts" context="module">
   import ProgressBar from "components/ProgressBar.svelte";
   import Divider from "components/Divider.svelte";
   import IconLabel from "./IconLabel.svelte";
   import Icon from "components/Icon.svelte";
   import ProgressRing from "components/ProgressRing.svelte";
+  import DownloadButton from "components/DownloadButton.svelte";
+
+  const INFO = [
+    ["Residence", "Mexico"],
+    ["Age", Math.floor((Date.now() - (new Date("jan 28, 1997")).getTime()) / 1000 / 60 / 60 / 24 / 30 / 12)],
+  ];
+
+  const LANGUAGES = [["Spanish", 100], ["English", 100]] as const;
+
+  const WORK = [
+    ["maestro", "Worked at Maestro Interactive for 3 years"],
+    ["paxico", "Worked at Paxico Technologies for 5 years"],
+    ["elephant", "Worked as a freelance for 2 years"],
+  ] as const;
+
+  const PROGRAMMING = [
+    ["Typescript / Javascript", 100],
+    ["CSS / SASS", 100],
+    ["Rust", 80],
+    ["Python / Mojo", 80],
+  ] as const;
+
+  const FRAMEWORKS = [
+    ["React / Svelte", 100],
+    ["SvelteKit / Next.js", 100],
+    ["Express / Koa", 80],
+    ["Axum / Rocket", 80],
+    ["MongoDB / SQL", 80],
+  ] as const;
+
+  const TOOLS = [
+    "Vite, Webpack, Gulp",
+    "Tailwind, Styled components, Emotion, MUI",
+    "Deno, Node",
+    "Firebase",
+    "Jest",
+    "Storybook",
+    "REST, GraphQL",
+    "SEO, SSR, serverless",
+    "Figma",
+  ];
 </script>
 
 <aside class="Sidebar">
   <section class="Sidebar__pic">
     <span />
     <div class="Sidebar__pic__info">
-      <h4>Armando Munoz</h4>
+      <h4>Armando Muñoz</h4>
       <p>Full-stack Developer</p>
       <p>Software Engineer</p>
     </div>
+    <DownloadButton url="/armando/static/Resume.pdf" filename="Resume.pdf">
+      DOWNLOAD RESUME
+    </DownloadButton>
   </section>
   <section class="Sidebar__content">
-    <div class="Sidebar__info">
-      <strong>Residence:</strong>
-      <p>Mexico</p>
-    </div>
-    <div class="Sidebar__info">
-      <strong>Age:</strong>
-      <p>26</p>
-    </div>
+    {#each INFO as [label, value]}
+      <div class="Sidebar__info">
+        <strong>{label}:</strong>
+        <p>{value}</p>
+      </div>
+    {/each}
     <Divider />
       <div class="Sidebar__languages">
-        <ProgressRing label="Spanish" progress={100} />
-        <ProgressRing label="English" progress={100} />
+        {#each LANGUAGES as [label, progress]}
+          <ProgressRing {label} {progress} />
+        {/each}
       </div>
     <Divider />
-    <div class="Sidebar__work">
-      <Icon name="maestro" />
-      <p>Worked at Maestro Interactive for 3 years</p>
-    </div>
+    {#each WORK as [name, description]}
+      <div class="Sidebar__work">
+        <Icon {name} />
+        <p>{description}</p>
+      </div>
+    {/each}
     <Divider />
-    <ProgressBar label="Typescript / Javascript" progress={100} />
-    <ProgressBar label="CSS / SASS" progress={100} />
-    <ProgressBar label="Rust" progress={80} />
-    <ProgressBar label="Python / Mojo" progress={80} />
+    {#each PROGRAMMING as [label, progress]}
+      <ProgressBar {label} {progress} />
+    {/each}
     <Divider />
-    <ProgressBar label="React / Svelte" progress={100} />
-    <ProgressBar label="SvelteKit / Next.js" progress={100} />
-    <ProgressBar label="Express / Koa" progress={80} />
-    <ProgressBar label="Axum / Rocket" progress={80} />
-    <ProgressBar label="MongoDB / SQL" progress={80} />
+    {#each FRAMEWORKS as [label, progress]}
+      <ProgressBar {label} {progress} />
+    {/each}
     <Divider />
-    <IconLabel icon="checkmark" label="Vite, Webpack, Gulp" />
-    <IconLabel icon="checkmark" label="Tailwind, Styled components, Emotion, MUI" />
-    <IconLabel icon="checkmark" label="Deno, Node" />
-    <IconLabel icon="checkmark" label="Firebase" />
-    <IconLabel icon="checkmark" label="Jest" />
-    <IconLabel icon="checkmark" label="Storybook" />
-    <IconLabel icon="checkmark" label="REST, GraphQL" />
-    <IconLabel icon="checkmark" label="SEO, SSR, serverless" />
+    {#each TOOLS as label}
+      <IconLabel icon="checkmark" {label} />
+    {/each}
   </section>
 </aside>
 

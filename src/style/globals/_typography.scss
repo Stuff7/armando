@@ -8,13 +8,6 @@
 $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
 
 :root {
-  --color-dark: #1E1E28;
-  --color-light: #D9D9D9;
-  --color-accent-1: #EC1D25;
-  --color-accent-2: #E4E0B4;
-  --color-surface-1: #292933;
-  --color-surface-2: #363639;
-
   --h-nm-100: #{clamp(misc.rem(14), 1vw, misc.rem(24))};
   --h-nm-200: #{clamp(misc.rem(16), 1.5vw, misc.rem(26))};
   --h-nm-300: #{clamp(misc.rem(20), 1.7vw, misc.rem(30))};

@@ -9,40 +9,21 @@
       and functionality to every project.
     </summary>
   </section>
-  <section class="Content__recent-work">
-    <h1>Recent Work</h1>
-    <div>
-      {#each PROJECTS as project}
-        <ProjectCard {...project} />
-      {/each}
-    </div>
+  <section class="Content__carousel">
+    <h1><Icon name="portfolio" />Experience <em>8+ years</em></h1>
+    <Carousel items={EXPERIENCE} visibleCount={1} inlineNav let:props>
+      <ExperienceCard {...props} />
+    </Carousel>
   </section>
-  <section class="Content__projects-breakdown">
-    <h1>GitHub Projects Breakdown</h1>
-    <RingChart
-      radius="min(40vw, 80%)"
-      data={[{
-        label: "Rust",
-        color: "#dea584",
-        percentage: 30,
-      }, {
-        label: "Typescript",
-        color: "#2b7489",
-        percentage: 20,
-      }, {
-        label: "Svelte",
-        color: "#ff3e00",
-        percentage: 20,
-      }, {
-        label: "C++",
-        color: "#f34b7d",
-        percentage: 10,
-      }, {
-        label: "Python",
-        color: "#3572A5",
-        percentage: 10,
-      }]}
-    />
+  <section class="Content__carousel">
+    <h1><Icon name="github" />Recent Work</h1>
+    <Carousel items={PROJECTS} let:props>
+      <ProjectCard {...props} />
+    </Carousel>
+  </section>
+  <section class="Content__carousel">
+    <h1><Icon name="chat-bubble-filled" />Contact</h1>
+    <Contact />
   </section>
 </article>
 
@@ -52,32 +33,44 @@
   .Content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: var(--spacing-lg-200);
     background: #0008;
     border-radius: var(--spacing-nm-100);
     overflow: hidden;
     backdrop-filter: blur(1.5px);
     color: white;
-    padding: calc(var(--spacing-lg-200) * 2) var(--spacing-lg-200);
+    padding: var(--spacing-lg-200);
+    padding-top: calc(var(--spacing-lg-200) * 2);
     height: max-content;
     min-height: 100%;
     @include misc.shadow;
 
-    &__recent-work {
+    &__carousel {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-nm-200);
 
       h1 {
-        font-size: var(--h-lg-100);
-      }
-
-      div {
-        display: grid;
-        justify-items: center;
-        grid-template-columns: repeat(3, 1fr);
+        font-size: var(--h-md-100);
+        display: flex;
         gap: var(--spacing-nm-200);
-        overflow: auto hidden;
+        align-items: center;
+        border-bottom: 1px solid var(--color-light);
+        --icon-size: var(--spacing-lg-100);
+
+        em {
+          margin-left: auto;
+          font-size: var(--p-lg-100);
+          font-weight: 200;
+          color: var(--color-light);
+        }
+
+        & :global(.Icon) {
+          background: var(--color-light);
+          color: var(--color-dark);
+          padding: var(--spacing-nm-100);
+        }
       }
     }
 
@@ -106,22 +99,15 @@
         font-size: var(--h-nm-200);
       }
     }
-
-    &__projects-breakdown {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      gap: var(--spacing-md-200);
-      :global(.RingChart) {
-        margin-inline: auto;
-      }
-    }
   }
 </style>
 
 <script lang="ts" context="module">
   import ProjectCard, { type Source, type Status } from "components/ProjectCard.svelte";
-  import RingChart from "components/RingChart.svelte";
+  import ExperienceCard from "components/ExperienceCard.svelte";
+  import Carousel from "components/Carousel.svelte";
+  import Icon from "components/Icon.svelte";
+  import Contact from "components/Contact.svelte";
 
   const PROJECTS: {
     name: string,
@@ -174,5 +160,46 @@
       repoLink: "https://github.com/Stuff7/bevy_snake",
       repoName: "bevy_snake",
     }],
+  }];
+
+  const EXPERIENCE: {
+    jobTitle: string,
+    company: string,
+    startDate: Date,
+    endDate: Option<Date>,
+    location: string,
+    description: string,
+  }[] = [{
+    jobTitle: "Full Stack Developer",
+    company: "Maestro Interactive",
+    startDate: new Date("may 4, 2020"),
+    endDate: new Date("may 31, 2023"),
+    location: "Los Angeles, California (Fully remote)",
+    description: "At Maestro, I collaborated closely with a design team \
+    to create an immersive UI with components used as dynamic building blocks. \
+    I also developed a video call application. By leveraging WebRTC and \
+    WebSockets, and I implemented powerful analytics capabilities using \
+    Elasticsearch and BigQuery.",
+  }, {
+    jobTitle: "Full Stack Developer",
+    company: "Paxico Technologies",
+    startDate: new Date("jun 1, 2015"),
+    endDate: new Date("may 1, 2020"),
+    location: "Tijuana, Baja California (Fully remote)",
+    description: "At Paxico, I worked on developing a platform centered \
+    around empowering companies to conduct comprehensive load tests on \
+    their products. Moreover, I played a pivotal role in developing intelligent \
+    algorithms and predictive models, empowering organizations to anticipate and \
+    mitigate performance issues before they manifest in production environments.",
+  }, {
+    jobTitle: "Full Stack Developer",
+    company: "Self-employed",
+    startDate: new Date("may 6, 2013"),
+    endDate: new Date("jun 1, 2015"),
+    location: "Nuevo Leon, Mexico",
+    description: "As a self-employed freelancer, I worked on a project \
+    that involved the creation of a file system interface for cloud storage, \
+    with a primary focus on Google Drive. As well as working with FFMPEG in \
+    the backend, I acquired expertise in video technologies.",
   }];
 </script>

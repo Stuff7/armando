@@ -54,7 +54,11 @@ $max-brightness: brightness(#fff);
   @return hsl($h, $s, $l, $alpha);
 }
 
-@mixin define-hsl($var-name, $hue, $saturation, $lightness){
+@mixin define-hex($var-name, $hexColor) {
+  @include define-hsl($var-name, color.hue($hexColor), color.saturation($hexColor), color.lightness($hexColor));
+}
+
+@mixin define-hsl($var-name, $hue, $saturation, $lightness) {
   #{$var-name}-h: $hue;
   #{$var-name}-s: $saturation;
   #{$var-name}-l: $lightness;

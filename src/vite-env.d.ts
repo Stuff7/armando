@@ -12,5 +12,6 @@ declare namespace svelte.JSX {
     onhover?: Option<import("types/events").HoverHandler>;
     onhovermove?: Option<import("types/events").HoverHandler>;
     onhoverend?: Option<import("types/events").HoverHandler>;
+    ontooltiphide?: Option<import("types/events").TooltipHideHandler>;
   }
 }

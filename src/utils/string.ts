@@ -1,11 +1,11 @@
 export function createCurrencyFormatter(
   locales?: string | string[],
-  currency = 'USD',
+  currency = "USD",
   options: Intl.NumberFormatOptions = {},
 ) {
   return (new Intl.NumberFormat(locales, {
     ...options,
-    style: 'currency',
+    style: "currency",
     currency,
   })).format;
 }
@@ -15,18 +15,18 @@ export function capitalize<T extends string>(text: T) {
 }
 
 export function kebabCase(text: string) {
-  return text.split(/_|\s|(?=[A-Z])/).join('-').toLowerCase();
+  return text.split(/_|\s|(?=[A-Z])/).join("-").toLowerCase();
 }
 
 export function snakeCase(text: string): string {
-  return text.split(/-|\s|(?=[A-Z])/).join('_').toLowerCase();
+  return text.split(/-|\s|(?=[A-Z])/).join("_").toLowerCase();
 }
 
 export function stringify<T>(value: T) {
   if (value === null) {
     return null;
   }
-  return typeof value === 'object' ?
+  return typeof value === "object" ?
     JSON.stringify(value) :
     `${value}`;
 }
@@ -45,11 +45,11 @@ export function formatTime(seconds: number) {
 
   const timestamp = [];
   if (hrs) {
-    timestamp.push(hrs.toString().padStart(2, '0'));
+    timestamp.push(hrs.toString().padStart(2, "0"));
   }
   return [
     ...timestamp,
-    mins.toString().padStart(2, '0'),
-    secs.toString().padStart(2, '0'),
-  ].join(':');
+    mins.toString().padStart(2, "0"),
+    secs.toString().padStart(2, "0"),
+  ].join(":");
 }

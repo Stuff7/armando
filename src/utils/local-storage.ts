@@ -1,5 +1,5 @@
-import { writable } from 'svelte/store';
-import { stringify } from 'utils/string';
+import { writable } from "svelte/store";
+import { stringify } from "utils/string";
 
 type LocalStorageKey = `JSP__${string}`;
 
@@ -18,7 +18,7 @@ export function getLocalItem<T = string>(
     }
     return item && isObject ? JSON.parse(item) as T : item as T;
   } catch (e) {
-    console.error('Error getting local storage item', item, '\n\n', e);
+    console.error("Error getting local storage item", item, "\n\n", e);
     throw e;
   }
 }

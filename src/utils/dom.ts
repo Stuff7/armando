@@ -1,10 +1,19 @@
-import type { MouseTouchEvent } from 'types/events';
-import { kebabCase } from 'utils/string';
+import type { MouseTouchEvent } from "types/events";
+import { kebabCase } from "utils/string";
 
 export function cssCustomProps(vars: Record<string, unknown>) {
   return Object.entries(vars).reduce((css, [key, val]) => (
     `${css}--${kebabCase(key)}:${val};`
-  ), '');
+  ), "");
+}
+
+export function copyToClipboard(text: string) {
+  const input = document.createElement("input");
+  input.value = text;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand("copy");
+  document.body.removeChild(input);
 }
 
 export function checkIfSafari() {

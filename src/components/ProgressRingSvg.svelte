@@ -18,7 +18,6 @@
   const ringId = crypto.randomUUID();
 
   let paths = "";
-  let keyTimes = "";
 
   $: r = 256 * scale;
   $: diameter = r * 2;
@@ -28,15 +27,11 @@
   $: ringD = createArcPath(center, center, [0, sweep], rotation);
   $: {
     const pathList = [];
-    const keyTimeList = [];
-    for (let i = 0; i < percentage; i += 0.02) {
+    for (let i = 0; i < percentage; i += 0.04) {
       pathList.push(createArcPath(center, center, [0, sweep * i], rotation));
-      keyTimeList.push(i.toFixed(2));
     }
     pathList.push(pathD);
-    keyTimeList.push("1");
     paths = pathList.join(";");
-    keyTimes = keyTimeList.join(";");
   }
 </script>
 
@@ -54,7 +49,6 @@
         attributeName="d"
         attributeType="XML"
         values={paths}
-        keyTimes={keyTimes}
         dur="2s"
       />
     </path>

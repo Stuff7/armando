@@ -45,8 +45,7 @@
     color: var(--color-dark);
     border-radius: var(--radius-nm-200);
     position: relative;
-    min-width: var(--area-md-100);
-    max-width: var(--area-lg-200);
+    width: 100%;
 
     &__info {
       display: flex;
@@ -57,6 +56,10 @@
       h1, h2 {
         font-size: var(--h-nm-300);
         text-transform: capitalize;
+      }
+
+      h1 {
+        padding-right: calc(var(--area-sm-50) * 1.2);
       }
 
       summary {
@@ -95,6 +98,7 @@
         align-items: center;
         color: var(--color-accent-1);
         text-decoration: underline;
+        width: max-content;
 
         span {
           border-radius: 50%;

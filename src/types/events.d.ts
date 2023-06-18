@@ -55,3 +55,6 @@ export type HoverHandler = Handler<HoverEvent>;
 export type IntersectionDetail = IntersectionObserverEntry;
 export type IntersectionEvent = CustomEvent<IntersectionDetail>;
 export type IntersectionHandler = Handler<IntersectionEvent>;
+
+export type TooltipHideEvent = CustomEvent;
+export type TooltipHideHandler = Handler<TooltipHideEvent>;

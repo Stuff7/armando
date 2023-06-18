@@ -1,4 +1,4 @@
-import { stringify } from 'utils/string';
+import { stringify } from "utils/string";
 
 export class UnsupportedValueError extends Error {
   constructor(value: never) {

@@ -61,13 +61,14 @@ export default function tooltip<T extends HTMLElement>(node: T) {
     const title = node.dataset.tooltip;
     tooltipComponent?.$set({
       title,
-      x: event.pageX,
-      y: event.pageY,
+      x: event.clientX,
+      y: event.clientY,
     });
   }
 
   function hoverEnd() {
     outroAndDestroy(tooltipComponent, removePortal);
+    node.dispatchEvent(new CustomEvent("tooltiphide"));
   }
 
   function removePortal() {
