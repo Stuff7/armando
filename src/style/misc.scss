@@ -1,66 +1,4 @@
 @use "sass:math";
-@use "sass:string";
-
-@mixin abs-horizontal-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@mixin border-radius {
-  border-radius: var(--radius-nm-100);
-}
-
-@mixin circle($radius: 1em) {
-  flex: 0 0;
-  width: calc($radius * 2);
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
-}
-
-@function starts-with($string, $find) {
-  @return str-slice($string, 0, str-len($find)) == $find;
-}
-
-@function ends-with($string, $find) {
-  @return str-slice($string, (str-length($string) - str-length($find) + 1)) == $find;
-}
-
-@function contains($string, $find) {
-  @if (str-index($string, $find)) {
-    @return true;
-  } @else {
-    @return false;
-  }
-}
-
-@mixin input-range-thumb {
-  input[type=range]::-webkit-slider-thumb {
-    @content;
-  }
-
-  input[type=range]::-moz-range-thumb {
-    @content;
-  }
-
-  input[type=range]::-ms-thumb {
-    @content;
-  }
-}
-
-@mixin input-range-track {
-  input[type=range]::-webkit-slider-runnable-track {
-    @content;
-  }
-
-  input[type=range]::-moz-range-track {
-    @content;
-  }
-
-  input[type=range]::-ms-track {
-    @content;
-  }
-}
 
 @function unitless($name, $value, $unit) {
   @if math.is-unitless($value) {
@@ -69,16 +7,16 @@
   @error "#{$unit} function only takes unitless types";
 }
 
+@mixin border-radius {
+  border-radius: var(--radius-nm-100);
+}
+
 @function em($px) {
   @return unitless(em, math.div($px, 16), em);
 }
 
 @function rem($px) {
   @return unitless(rem, math.div($px, 16), rem);
-}
-
-@function random-range($min, $max) {
-  @return $min + floor(random() * (($max - $min) + 1));
 }
 
 @mixin scrollbar($color) {
@@ -170,27 +108,5 @@
   }
   @else if $dir == "top-left" {
     @include triangle-top-left($half-w, $h, $color);
-  }
-}
-
-$positions: (
-  "top": "bottom",
-  "right": "left",
-  "bottom": "top",
-  "left": "right",
-);
-
-$mixed-positions: map-merge($positions, (
-  "top-right": "bottom",
-  "bottom-right": "top",
-  "bottom-left": "top",
-  "top-left": "bottom",
-));
-
-@mixin position-classes($mixed: false) {
-  @each $pos, $inv in if($mixed, $mixed-positions, $positions) {
-    &.#{$pos} {
-      @content($pos, $inv);
-    }
   }
 }

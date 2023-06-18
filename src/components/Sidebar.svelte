@@ -1,10 +1,11 @@
 <script lang="ts" context="module">
   import ProgressBar from "components/ProgressBar.svelte";
   import Divider from "components/Divider.svelte";
-  import IconLabel from "./IconLabel.svelte";
+  import IconLabel from "components/IconLabel.svelte";
   import Icon from "components/Icon.svelte";
   import ProgressRing from "components/ProgressRing.svelte";
-  import DownloadButton from "components/DownloadButton.svelte";
+  import DownloadResume from "components/DownloadResume.svelte";
+  import ProfilePicture from "components/ProfilePicture.svelte";
 
   const INFO = [
     ["Residence", "Mexico"],
@@ -49,15 +50,13 @@
 
 <aside class="Sidebar">
   <section class="Sidebar__pic">
-    <img src="/armando/static/profile-pic.webp" alt="Profile" />
+    <ProfilePicture />
     <div class="Sidebar__pic__info">
       <h4>Armando Muñoz</h4>
       <p>Full-stack Developer</p>
       <p>Software Engineer</p>
     </div>
-    <DownloadButton url="/armando/static/Resume.pdf" filename="Resume.pdf">
-      DOWNLOAD RESUME
-    </DownloadButton>
+    <DownloadResume />
   </section>
   <section class="Sidebar__content">
     {#each INFO as [label, value]}
@@ -118,14 +117,6 @@
       padding: var(--spacing-md-100);
       gap: var(--spacing-md-100);
       background: var(--color-surface-2);
-
-      img {
-        width: var(--area-sm-100);
-        aspect-ratio: 1 / 1;
-        border-radius: var(--area-sm-100);
-        background: black;
-        object-fit: cover;
-      }
 
       &__info {
         display: flex;

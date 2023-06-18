@@ -24,11 +24,12 @@
 </div>
 
 <style lang="scss">
+  @use "style/media";
+
   .Background {
     top: 0;
     left: 0;
     z-index: -2;
-    background: linear-gradient(180deg, #EC1D25 0%, #1E1E28 64.58%);
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -37,8 +38,6 @@
       --icon-color: var(--color-dark);
       --icon-size: var(--area-nm-100);
       position: absolute;
-      right: calc(var(--spacing-lg-100) * 3);
-      top: calc(var(--spacing-lg-200) * 2);
       z-index: -1;
       color: white;
       display: flex;
@@ -51,13 +50,39 @@
         font: var(--h-nm-200) var(--font-title);
       }
     }
+
+    @include media.larger-than(desktop-sm) {
+      background: linear-gradient(180deg, #EC1D25 0%, #1E1E28 64.58%);
+
+      &__logo {
+        right: calc(var(--spacing-lg-100) * 3);
+        top: calc(var(--spacing-lg-200) * 2);
+      }
+    }
+
+    @include media.smaller-than(desktop-sm) {
+      background: linear-gradient(180deg, #EC1D25 0%, #1E1E28 95%);
+
+      &__logo {
+        right: 0;
+        top: 46%;
+      }
+    }
   }
 
   .waves {
-    position: relative;
     width: 100%;
     height: 50vh;
-    margin-top: var(--area-nm-50);
+
+    @include media.larger-than(desktop-sm) {
+      position: relative;
+      margin-top: var(--area-nm-50);
+    }
+
+    @include media.smaller-than(desktop-sm) {
+      position: absolute;
+      bottom: 0;
+    }
   }
 
   .parallax > use {

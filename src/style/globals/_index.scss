@@ -3,7 +3,6 @@
 @forward "typography";
 
 @use "style/color";
-@use "style/text";
 @use "style/misc";
 @use "style/media";
 
@@ -28,8 +27,8 @@
 }
 
 *, *::before, *::after {
-  @include text.font-body;
   @include misc.scrollbar(var(--color-accent-1));
+  font-family: var(--font-body);
   box-sizing: inherit;
   line-height: 1;
   margin: 0;

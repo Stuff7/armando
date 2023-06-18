@@ -12,15 +12,26 @@
 </main>
 <PortalLayer portalID="tooltip" cover preventClicks zIndex={10} />
 
-<style>
+<style lang="scss">
+  @use "style/media";
+
   main {
     width: 100%;
     max-width: var(--area-xl-100);
     margin-inline: auto;
     position: relative;
-    padding: var(--spacing-lg-200);
-    display: grid;
-    grid-template: "a b" 1fr / max-content 1fr;
-    gap: var(--spacing-lg-200);
+
+    @include media.larger-than(desktop-sm) {
+      display: grid;
+      grid-template: "a b" 1fr / max-content 1fr;
+      gap: var(--spacing-lg-200);
+      padding: var(--spacing-lg-200);
+    }
+
+    @include media.smaller-than(desktop-sm) {
+      & :global(.Sidebar) {
+        display: none;
+      }
+    }
   }
 </style>

@@ -1,54 +1,6 @@
 @use "sass:list";
 @use "sass:math";
 @use "sass:color";
-@use "style/misc";
-
-@function rainbow($brightness: 233) {
-  $r: $brightness;
-  $g: 0;
-  $text-color: 0;
-  $colors: rgb($r, $g, $text-color) 0%,;
-  @for $percent from 1 to 100 {
-    @if $percent < 20 {
-      $g: $g + math.div($brightness, 20);
-    } @else if $percent > 50 and $percent < 86 {
-      $g: $g - math.div($brightness, 36);
-    }
-    @if $percent > 18 {
-      @if $percent < 40 {
-        $r: $r - math.div($brightness, 22);
-      } @else if $percent > 64 and $percent < 84 {
-        $r: $r + math.div($brightness, 20);
-      }
-    }
-    @if $percent > 24 {
-      @if $percent < 48 {
-        $text-color: $text-color + math.div($brightness, 24);
-      } @else if $percent > 80 {
-        $text-color: $text-color - math.div($brightness, 20);
-      }
-    }
-    $color: rgb($r, $g, $text-color) percentage(math.div($percent, 100));
-    $colors: list.append($colors, $color, comma);
-  }
-  @return linear-gradient(90deg, $colors);
-}
-
-@function brightness($color) {
-  @return math.round((red($color) * 299) + (green($color) * 587) + math.div(blue($color) * 114, 1000));
-}
-
-$max-brightness: brightness(#fff);
-@function text-contrast($bg-color, $text-color: $bg-color, $strength: 90%) {
-  $bg-brightness: percentage(math.div(brightness($bg-color), $max-brightness));
-  $text-brightness: percentage(math.div(brightness($text-color), $max-brightness));
-
-  @if math.abs($bg-brightness - $text-brightness) > 70% {
-    @return $text-color;
-  }
-
-  @return color.scale($text-color, $lightness: if($bg-brightness < 50%, $strength, -$strength));
-}
 
 @function var-hsl($var-name, $h: var(#{$var-name}-h), $s: var(#{$var-name}-s), $l: var(#{$var-name}-l), $alpha: 1) {
   @return hsl($h, $s, $l, $alpha);
@@ -65,50 +17,9 @@ $max-brightness: brightness(#fff);
   #{$var-name}: var-hsl($var-name);
 }
 
-@mixin define-color-shades($var-name){
-  $shade: 100;
-  @while $shade < 1000 {
-    #{$var-name}-#{$shade}: var-hsl($var-name, $s: 10%, $l: var(--color-shade-#{$shade}));
-    $shade: $shade + 100;
-  }
-}
-
-@mixin define-shades($invert: false) {
-  $shade: 10;
-  @while $shade < 100 {
-    $l: if($shade == 50, 40, if($shade < 50, math.div($shade, 2), $shade + 7));
-    $shade-class: if($invert == true, 100 - $shade, $shade);
-    --color-shade-#{$shade-class}0: #{$l + "%"};
-    $shade: $shade + 10;
-  }
-}
-
 @function alpha($var-name, $alpha: 1) {
   $h: var(#{$var-name}-h);
   $s: var(#{$var-name}-s);
   $l: var(#{$var-name}-l);
   @return hsla($h, $s, $l, $alpha);
-}
-
-@function shade($var-name, $shade, $s: 10%, $l: var(--color-shade-#{$shade}), $a: 1) {
-  @return var-hsl($var-name, $s: $s, $l: $l, $alpha: $a);
-}
-
-@function abs($n) {
-  @return max($n, -1 * $n);
-}
-
-@function hue-step($step: 15, $saturation: 100%, $lightness: 50%) {
-  $colors: ();
-  $hue: 90;
-  @while $hue > 0 {
-    $colors: list.append($colors, hsl($hue, $saturation, $lightness), comma);
-    $hue: $hue - $step;
-  }
-  $hue: 360;
-  @while $hue > 90 {
-    $colors: list.append($colors, hsl($hue, $saturation, $lightness), comma);
-    $hue: $hue - $step;
-  }
-  @return list.append($colors, hsl(90, $saturation, $lightness), comma);
 }

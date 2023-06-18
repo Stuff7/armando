@@ -1,19 +1,16 @@
-<script lang="ts">
-  export let url: string;
-  export let filename: string;
-</script>
-
 <a
-class="DownloadButton"
-href={url}
-download={filename}
-target="_blank"
+  class="DownloadResume"
+  href="/armando/static/Resume.pdf"
+  download="Resume.pdf"
+  target="_blank"
 >
-  <slot />
+  DOWNLOAD RESUME
 </a>
 
 <style lang="scss">
-  .DownloadButton {
+  .DownloadResume {
+    display: block;
+    text-align: center;
     background: var(--color-accent-1);
     color: white;
     padding: var(--spacing-nm-100) var(--spacing-lg-100);
