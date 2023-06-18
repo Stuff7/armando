@@ -27,7 +27,7 @@
   .Background {
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
     background: linear-gradient(180deg, #EC1D25 0%, #1E1E28 64.58%);
     height: 100vh;
     width: 100vw;
@@ -39,7 +39,7 @@
       position: absolute;
       right: calc(var(--spacing-lg-100) * 3);
       top: calc(var(--spacing-lg-200) * 2);
-      z-index: 0;
+      z-index: -1;
       color: white;
       display: flex;
       flex-direction: column;

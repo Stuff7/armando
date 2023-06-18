@@ -49,7 +49,7 @@
 
 <aside class="Sidebar">
   <section class="Sidebar__pic">
-    <span />
+    <img src="/armando/static/profile-pic.webp" alt="Profile" />
     <div class="Sidebar__pic__info">
       <h4>Armando Muñoz</h4>
       <p>Full-stack Developer</p>
@@ -119,11 +119,12 @@
       gap: var(--spacing-md-100);
       background: var(--color-surface-2);
 
-      span {
+      img {
         width: var(--area-sm-100);
         aspect-ratio: 1 / 1;
         border-radius: var(--area-sm-100);
         background: black;
+        object-fit: cover;
       }
 
       &__info {

@@ -78,6 +78,7 @@
       justify-content: space-between;
       align-items: center;
       gap: var(--spacing-nm-100);
+      --icon-color: white;
 
       & .inline {
         position: absolute;

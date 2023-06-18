@@ -20,6 +20,7 @@
     gap: var(--spacing-nm-100);
     border-inline: 1px solid var(--color-light);
     padding: var(--spacing-nm-100);
+    color: var(--color-light);
 
     strong {
       color: var(--color-accent-2);

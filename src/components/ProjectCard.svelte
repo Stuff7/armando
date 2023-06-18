@@ -46,6 +46,7 @@
     border-radius: var(--radius-nm-200);
     position: relative;
     width: 100%;
+    height: 100%;
 
     &__info {
       display: flex;
