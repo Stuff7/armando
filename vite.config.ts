@@ -31,6 +31,9 @@ export default defineConfig({
   base: "/armando/",
   plugins: [svelte()],
   publicDir: "src/assets",
+  build: {
+    outDir: "./docs",
+  },
   resolve: {
     alias: {
       ...srcDirs.reduce((aliases, dir) => {
