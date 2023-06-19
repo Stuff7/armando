@@ -24,7 +24,7 @@
       display: block;
 
       & > :global(*) {
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         height: 100vh;
       }
     }
