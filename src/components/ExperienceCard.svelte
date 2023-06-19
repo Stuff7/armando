@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { getYearRange } from "utils/date";
+
   export let jobTitle: string;
   export let company: string;
   export let startDate: Date;
@@ -8,7 +10,7 @@
 </script>
 
 <article class="ExperienceCard">
-  <h1><strong>{jobTitle}</strong> @{company} ({startDate.getFullYear()} - {endDate ? endDate.getFullYear() : "Present"})</h1>
+  <h1><strong>{jobTitle}</strong> @{company} ({getYearRange(startDate, endDate)})</h1>
   <em>{location}</em>
   <summary>{description}</summary>
 </article>

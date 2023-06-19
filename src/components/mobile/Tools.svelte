@@ -1,6 +1,5 @@
 <script context="module">
   import FrameworkGraphs from "components/FrameworkGraphs.svelte";
-  import SwipeIndicator from "components/SwipeIndicator.svelte";
   import ToolList from "components/ToolList.svelte";
   import MobileSlide from "components/mobile/Slide.svelte";
 </script>
@@ -13,6 +12,5 @@
   <svelte:fragment slot="content">
     <FrameworkGraphs />
     <ToolList />
-    <SwipeIndicator />
   </svelte:fragment>
 </MobileSlide>

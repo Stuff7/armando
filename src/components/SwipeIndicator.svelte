@@ -15,6 +15,7 @@
     margin-bottom: 5vh;
     color: white;
     font-size: var(--p-md-300);
+    padding: var(--swipe-indicator-padding, initial);
     --icon-size: var(--spacing-lg-100);
     --icon-color: var(--color-accent-1);
 

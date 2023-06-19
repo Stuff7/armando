@@ -3,6 +3,7 @@
   import Tools from "components/mobile/Tools.svelte";
   import Experience from "components/mobile/Experience.svelte";
   import Home from "components/mobile/Home.svelte";
+  import RecentProjects from "components/mobile/RecentProjects.svelte";
 </script>
 
 <div class="MobileContent">
@@ -10,6 +11,7 @@
   <Profile />
   <Tools />
   <Experience />
+  <RecentProjects />
 </div>
 
 <style lang="scss">

@@ -1,5 +1,4 @@
 <script lang="ts" context="module">
-  import Contact from "components/Contact.svelte";
   import ProfilePicture from "components/ProfilePicture.svelte";
   import DownloadResume from "components/DownloadResume.svelte";
   import SwipeIndicator from "components/SwipeIndicator.svelte";
@@ -19,10 +18,7 @@
     </summary>
   </section>
   <div class="Home__body">
-    <div class="Home__contact">
-      <Contact iconSize="calc(var(--area-sm-50) * 0.7)" />
-      <DownloadResume />
-    </div>
+    <DownloadResume showContact />
     <SwipeIndicator>Or swipe for more...</SwipeIndicator>
   </div>
 </article>
@@ -82,12 +78,6 @@
         justify-content: space-between;
         width: 100%;
         gap: var(--spacing-md-200);
-        :global(.DownloadResume) {
-          border-radius: 0 0 var(--radius-nm-100) var(--radius-nm-100);
-          width: 100%;
-          font-size: var(--h-md-100);
-          padding: var(--spacing-md-200);
-        }
       }
 
       & :global(.ProfilePicture) {

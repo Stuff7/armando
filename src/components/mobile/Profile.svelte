@@ -1,6 +1,5 @@
 <script>
   import ProgrammingGraphs from "components/ProgrammingGraphs.svelte";
-  import SwipeIndicator from "components/SwipeIndicator.svelte";
   import LanguageGraphs from "components/LanguageGraphs.svelte";
   import Divider from "components/Divider.svelte";
   import IconLabel from "components/IconLabel.svelte";
@@ -24,7 +23,6 @@
       <LanguageGraphs />
     </div>
     <ProgrammingGraphs />
-    <SwipeIndicator />
   </svelte:fragment>
 </MobileSlide>
 

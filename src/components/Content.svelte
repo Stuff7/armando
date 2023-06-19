@@ -113,7 +113,7 @@
   import Icon from "components/Icon.svelte";
   import Contact from "components/Contact.svelte";
 
-  const PROJECTS: {
+  export const PROJECTS: {
     name: string,
     status: Status,
     description: string,
@@ -166,13 +166,14 @@
     }],
   }];
 
-  const EXPERIENCE: {
+  export const EXPERIENCE: {
     jobTitle: string,
     company: string,
     startDate: Date,
     endDate: Option<Date>,
     location: string,
     description: string,
+    bulletPoints: string[],
   }[] = [{
     jobTitle: "Full Stack Developer",
     company: "Maestro Interactive",
@@ -184,6 +185,11 @@
     I also developed a video call application. By leveraging WebRTC and \
     WebSockets, and I implemented powerful analytics capabilities using \
     Elasticsearch and BigQuery.",
+    bulletPoints: [
+      "I worked closely with a design team to create an immersive UI with custom components.",
+      "I developed a video call app leveraging WebRTC and WebSockets.",
+      "I implemented powerful analytics capabilities using Elasticsearch and BigQuery.",
+    ],
   }, {
     jobTitle: "Full Stack Developer",
     company: "Paxico Technologies",
@@ -195,6 +201,12 @@
     their products. Moreover, I played a pivotal role in developing intelligent \
     algorithms and predictive models, empowering organizations to anticipate and \
     mitigate performance issues before they manifest in production environments.",
+    bulletPoints: [
+      "I worked on a platform centered around providing load tests as a service.",
+      "I developed intelligent algorithms and predictive models, empowering \
+      organizations to anticipate and mitigate performance issues before they \
+      manifest in production environments.",
+    ],
   }, {
     jobTitle: "Full Stack Developer",
     company: "Self-employed",
@@ -205,5 +217,9 @@
     that involved the creation of a file system interface for cloud storage, \
     with a primary focus on Google Drive. As well as working with FFMPEG in \
     the backend, I acquired expertise in video technologies.",
+    bulletPoints: [
+      "I worked on a file system interface for cloud storage, with a primary focus on Google Drive.",
+      "I worked with FFMPEG in the backend, where I acquired expertise in video technologies.",
+    ],
   }];
 </script>
