@@ -32,11 +32,10 @@
     z-index: -2;
     height: 100vh;
     width: 100vw;
-    position: fixed;
 
     &__logo {
       --icon-color: var(--color-dark);
-      --icon-size: var(--area-nm-100);
+      --icon-size: var(--area-nm-50);
       position: absolute;
       z-index: -1;
       color: white;
@@ -53,19 +52,21 @@
 
     @include media.larger-than(desktop-sm) {
       background: linear-gradient(180deg, #EC1D25 0%, #1E1E28 64.58%);
+      position: fixed;
 
       &__logo {
         right: calc(var(--spacing-lg-100) * 3);
-        top: calc(var(--spacing-lg-200) * 2);
+        top: calc(var(--spacing-lg-200) * 3);
       }
     }
 
     @include media.smaller-than(desktop-sm) {
-      background: linear-gradient(180deg, #EC1D25 0%, #1E1E28 95%);
+      background: linear-gradient(180deg, #1E1E28 0%, #EC1D25 25%, #EC1D25 50%, #1E1E28 100%);
+      position: absolute;
 
       &__logo {
-        right: 0;
-        top: 46%;
+        right: 1vw;
+        top: 48vh;
       }
     }
   }

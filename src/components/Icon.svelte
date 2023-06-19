@@ -63,7 +63,6 @@
 {/await}
 
 <style lang="scss">
-  @use "style/animation";
   @use "style/color";
   @use "style/misc";
 

@@ -1,6 +1,7 @@
 type IconName = "arrow" |
 "chat-bubble-filled" |
 "checkmark" |
+"chevron" |
 "elephant" |
 "email" |
 "ferris-plain" |

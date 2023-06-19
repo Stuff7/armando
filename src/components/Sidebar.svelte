@@ -95,65 +95,70 @@
 
 <style lang="scss">
   @use "style/misc";
+  @use "style/media";
 
   .Sidebar {
-    width: clamp(16rem, 20vw, 25rem);
-    background: var(--color-surface-1);
-    color: white;
-    @include misc.shadow;
+    display: none;
+    @include media.larger-than(desktop-sm) {
+      display: block;
+      width: clamp(16rem, 20vw, 25rem);
+      background: var(--color-surface-1);
+      color: white;
+      @include misc.shadow;
 
-    section {
-      display: flex;
-      flex-direction: column;
-      padding: var(--spacing-md-100);
-    }
-
-    &__content {
-      gap: var(--spacing-nm-100);
-    }
-
-    &__pic {
-      align-items: center;
-      padding: var(--spacing-md-100);
-      gap: var(--spacing-md-100);
-      background: var(--color-surface-2);
-
-      &__info {
+      section {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-sm-100);
+        padding: var(--spacing-md-100);
+      }
+
+      &__content {
+        gap: var(--spacing-nm-100);
+      }
+
+      &__pic {
         align-items: center;
+        padding: var(--spacing-md-100);
+        gap: var(--spacing-md-100);
+        background: var(--color-surface-2);
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-sm-100);
+          align-items: center;
+        }
+
+        h4 {
+          color: var(--color-light);
+        }
+
+        p {
+          color: var(--color-accent-2);
+        }
       }
 
-      h4 {
-        color: var(--color-light);
+      &__info {
+          display: flex;
+          justify-content: space-between;
+          color: var(--color-light);
       }
 
-      p {
-        color: var(--color-accent-2);
-      }
-    }
-
-    &__info {
+      &__languages {
         display: flex;
-        justify-content: space-between;
-        color: var(--color-light);
-    }
-
-    &__languages {
-      display: flex;
-      gap: var(--spacing-nm-100);
-      justify-content: center;
-      & :global(.ProgressRing) {
-        flex: 0;
+        gap: var(--spacing-nm-100);
+        justify-content: center;
+        & :global(.ProgressRing) {
+          flex: 0;
+        }
       }
-    }
 
-    &__work {
-      display: flex;
-      gap: var(--spacing-nm-100);
-      align-items: center;
-      --icon-size: var(--area-sm-50);
+      &__work {
+        display: flex;
+        gap: var(--spacing-nm-100);
+        align-items: center;
+        --icon-size: var(--area-sm-50);
+      }
     }
   }
 </style>

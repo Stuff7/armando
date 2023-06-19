@@ -3,40 +3,14 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes blink {
-  to { visibility: hidden; }
-}
-
-@keyframes fade-in {
+@keyframes point-up {
   0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  } 
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(-10%);
   }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    transform: translateY(0%);
-  } 
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes point-left {
-  0% {
-    transform: translateX(00%);
-  } 
   50% {
-    transform: translateX(50%);
-  } 
+    transform: translateY(10%);
+  }
   100% {
-    transform: translateX(0%);
+    transform: translateY(-10%);
   }
 }

@@ -37,11 +37,19 @@
 
 html {
   height: 100%;
+  @include media.smaller-than(desktop-sm) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: auto;
+  }
 }
 
 body {
   min-width: misc.rem(320);
   height: 100%;
+  @include media.smaller-than(desktop-sm) {
+    z-index: -4;
+    position: relative;
+  }
 }
 
 button, [role=button] {

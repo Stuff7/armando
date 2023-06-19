@@ -1,6 +1,7 @@
 <script lang="ts" context="module">
   import Background from "components/Background.svelte";
   import Content from "components/Content.svelte";
+  import MobileContent from "components/MobileContent.svelte";
   import PortalLayer from "components/PortalLayer.svelte";
   import Sidebar from "components/Sidebar.svelte";
 </script>
@@ -9,6 +10,7 @@
   <Background />
   <Sidebar />
   <Content />
+  <MobileContent />
 </main>
 <PortalLayer portalID="tooltip" cover preventClicks zIndex={10} />
 
@@ -29,9 +31,8 @@
     }
 
     @include media.smaller-than(desktop-sm) {
-      & :global(.Sidebar) {
-        display: none;
-      }
+      background: var(--color-accent-1);
+      z-index: -3;
     }
   }
 </style>

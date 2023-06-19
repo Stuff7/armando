@@ -1,50 +1,30 @@
 <article class="Content">
-  <ProfilePicture />
-  <section class="Content__info">
-    <h1 class="Content__title desktop">
-      I'm a software engineer
-    </h1>
-    <h1 class="Content__title mobile">
-      <p>Hi.</p>
-      <p>I'm <strong>Armando</strong></p>
-      <strong>Muñoz</strong>
-    </h1>
-    <p class="Content__subtitle desktop">Specialized in full stack development</p>
-    <p class="Content__subtitle mobile">Software Engineer</p>
-    <summary class="Content__summary desktop">
+  <section class="Content__summary">
+    <h1>I'm a software engineer</h1>
+    <p>Specialized in full stack development</p>
+    <summary>
       My expertise lies in the dynamic realms of web development, UI/UX design,
       back-end services, and beyond. With a passion for crafting seamless user
       experiences and harnessing cutting-edge technologies, I bring innovation
       and functionality to every project.
     </summary>
-    <summary class="Content__summary mobile">
-      Expert in web dev, UI/UX, back-end services, and more.
-    </summary>
   </section>
-  <div class="Content__body desktop">
-    <section class="Content__carousel">
-      <h1><Icon name="portfolio" />Experience <em>8+ years</em></h1>
-      <Carousel items={EXPERIENCE} visibleCount={1} inlineNav let:props>
-        <ExperienceCard {...props} />
-      </Carousel>
-    </section>
-    <section class="Content__carousel">
-      <h1><Icon name="github" />Recent Work</h1>
-      <Carousel items={PROJECTS} let:props>
-        <ProjectCard {...props} />
-      </Carousel>
-    </section>
-    <section class="Content__carousel">
-      <h1><Icon name="chat-bubble-filled" />Contact</h1>
-      <Contact />
-    </section>
-  </div>
-  <div class="Content__body mobile">
-    <div class="Content__contact">
-      <Contact />
-      <DownloadResume />
-    </div>
-  </div>
+  <section class="Content__carousel">
+    <h1><Icon name="portfolio" />Experience <em>8+ years</em></h1>
+    <Carousel items={EXPERIENCE} visibleCount={1} inlineNav let:props>
+      <ExperienceCard {...props} />
+    </Carousel>
+  </section>
+  <section class="Content__carousel">
+    <h1><Icon name="github" />Recent Work</h1>
+    <Carousel items={PROJECTS} let:props>
+      <ProjectCard {...props} />
+    </Carousel>
+  </section>
+  <section class="Content__carousel">
+    <h1><Icon name="chat-bubble-filled" />Contact</h1>
+    <Contact />
+  </section>
 </article>
 
 <style lang="scss">
@@ -52,151 +32,75 @@
   @use "style/media";
 
   .Content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg-200);
-    background: #0008;
-    overflow: hidden;
-    backdrop-filter: blur(1.5px);
-    color: white;
-    padding: var(--spacing-lg-200);
-    height: max-content;
-    min-height: 100%;
-    @include misc.shadow;
-
-    &__info {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-nm-100);
-    }
-
-    &__title {
-      display: flex;
-      flex-direction: column;
-      text-transform: uppercase;
-      font-weight: bold;
-
-      strong {
-        color: var(--color-accent-1);
-      }
-    }
-
-    &__subtitle {
-      font-family: var(--font-title);
-      font-weight: bold;
-    }
-
-    &__body {
-      width: 100%;
-    }
-
-    &__carousel {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-nm-200);
-
-      h1 {
-        font-size: var(--h-md-100);
-        display: flex;
-        gap: var(--spacing-nm-200);
-        align-items: center;
-        border-bottom: 1px solid var(--color-light);
-        --icon-size: var(--spacing-lg-100);
-
-        em {
-          margin-left: auto;
-          font-size: var(--p-lg-100);
-          font-weight: 200;
-          color: var(--color-light);
-        }
-
-        & :global(.Icon) {
-          background: var(--color-light);
-          color: var(--color-dark);
-          padding: var(--spacing-nm-100);
-        }
-      }
-    }
-
+    display: none;
     @include media.larger-than(desktop-sm) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--spacing-lg-200);
+      background: #0008;
       border-radius: var(--spacing-nm-100);
+      overflow: hidden;
+      backdrop-filter: blur(1.5px);
+      color: white;
+      padding: var(--spacing-lg-200);
       padding-top: calc(var(--spacing-lg-200) * 2);
+      height: max-content;
+      min-height: 100%;
+      @include misc.shadow;
 
-      &__info {
-        text-align: center;
+      &__carousel {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-nm-200);
+
+        h1 {
+          font-size: var(--h-md-100);
+          display: flex;
+          gap: var(--spacing-nm-200);
+          align-items: center;
+          border-bottom: 1px solid var(--color-light);
+          --icon-size: var(--spacing-lg-100);
+
+          em {
+            margin-left: auto;
+            font-size: var(--p-lg-100);
+            font-weight: 200;
+            color: var(--color-light);
+          }
+
+          & :global(.Icon) {
+            background: var(--color-light);
+            color: var(--color-dark);
+            padding: var(--spacing-nm-100);
+          }
+        }
+      }
+
+      &__summary {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-nm-100);
         width: 50%;
         max-width: var(--area-lg-200);
+        text-align: center;
         margin-left: var(--spacing-lg-200);
-      }
 
-      &__title {
-        font-size: var(--h-lg-300);
-      }
-
-      &__subtitle {
-        font-size: var(--h-nm-300);
-      }
-
-      &__summary {
-        font-size: var(--h-nm-200);
-      }
-
-      &__body {
-        flex: 1;
-        display: inherit;
-        flex-direction: inherit;
-        justify-content: space-between;
-        gap: inherit;
-      }
-
-      .mobile {
-        display: none;
-      }
-
-      & :global(.ProfilePicture) {
-        display: none;
-      }
-    }
-
-    @include media.smaller-than(desktop-sm) {
-      height: 100vh;
-      align-items: center;
-      --profile-picture-width: var(--area-lg-100);
-
-      &__info {
-        width: 100%;
-        max-width: 45vh;
-      }
-
-      &__title {
-        font-size: var(--h-lg-200);
-      }
-
-      &__subtitle {
-        font-size: var(--h-lg-100);
-      }
-
-      &__summary {
-        font-size: var(--h-md-200);
-        max-width: 60vw;
-      }
-
-      &__body {
-        max-width: 45vh;
-        :global(.DownloadResume) {
-          border-radius: 0 0 var(--radius-nm-100) var(--radius-nm-100);
-          width: 100%;
-          font-size: var(--h-lg-100);
-          padding: var(--spacing-md-200);
+        h1 {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: var(--h-lg-200);
         }
-      }
 
-      .desktop {
-        display: none;
-      }
+        p {
+          font-family: var(--font-title);
+          font-weight: bold;
+          font-size: var(--h-nm-300);
+        }
 
-      & :global(.ProfilePicture) {
-        max-width: 35vh;
+        summary {
+          font-size: var(--h-nm-200);
+        }
       }
     }
   }
@@ -208,8 +112,6 @@
   import Carousel from "components/Carousel.svelte";
   import Icon from "components/Icon.svelte";
   import Contact from "components/Contact.svelte";
-  import ProfilePicture from "components/ProfilePicture.svelte";
-  import DownloadResume from "components/DownloadResume.svelte";
 
   const PROJECTS: {
     name: string,

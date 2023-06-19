@@ -10,7 +10,7 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
   --h-nm-100: #{clamp(misc.rem(14), 1vw, misc.rem(24))};
   --h-nm-200: #{clamp(misc.rem(16), 1.5vw, misc.rem(26))};
   --h-nm-300: #{clamp(misc.rem(20), 1.7vw, misc.rem(30))};
-  --h-md-100: #{clamp(misc.rem(22), 2.5vw, misc.rem(38))};
+  --h-md-100: #{clamp(misc.rem(20), 2.5vw, misc.rem(38))};
   --h-md-200: #{clamp(misc.rem(24), 3vw, misc.rem(26))};
   --h-lg-100: #{clamp(misc.rem(28), 4vw, misc.rem(30))};
   --h-lg-200: #{clamp(misc.rem(34), 6vw, misc.rem(36))};
@@ -28,7 +28,7 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
   --svg-nm-100: #{clamp(misc.rem(16), 3vw, misc.rem(20))};
   --svg-sm-100: #{clamp(misc.rem(10), 1.5vw, misc.rem(16))};
 
-  --spacing-lg-200: #{clamp(misc.rem(32), 5vw, misc.rem(48))};
+  --spacing-lg-200: #{clamp(misc.rem(28), 5vw, misc.rem(48))};
   --spacing-lg-100: #{clamp(misc.rem(28), 4vw, misc.rem(36))};
   --spacing-md-300: #{clamp(misc.rem(24), 3vw, misc.rem(30))};
   --spacing-md-200: #{clamp(misc.rem(20), 2vw, misc.rem(24))};

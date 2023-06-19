@@ -11,6 +11,8 @@
 </script>
 
 <script lang="ts">
+  export let iconSize = "var(--area-sm-50)";
+
   const CLIPBOARD = [
     [crypto.randomUUID(), "phone", "+52 812 756 9774"],
     [crypto.randomUUID(), "email", "cuentafrst@gmail.com"],
@@ -19,7 +21,7 @@
   let copied = false;
 </script>
 
-<section class="Contact">
+<section class="Contact" style:--icon-size={iconSize}>
   {#each CLIPBOARD as [id, icon, value]}
     <button
       data-tooltip-id="clipboard-{id}"
@@ -54,7 +56,6 @@
     justify-content: space-between;
     background: white;
     --icon-color: var(--color-dark);
-    --icon-size: var(--area-sm-50);
 
     &__clipboard-tooltip {
       display: flex;
