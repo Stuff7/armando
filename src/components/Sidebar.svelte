@@ -1,51 +1,23 @@
 <script lang="ts" context="module">
-  import ProgressBar from "components/ProgressBar.svelte";
+  import FrameworkGraphs from "components/FrameworkGraphs.svelte";
   import Divider from "components/Divider.svelte";
-  import IconLabel from "components/IconLabel.svelte";
+  import ToolList from "components/ToolList.svelte";
   import Icon from "components/Icon.svelte";
-  import ProgressRing from "components/ProgressRing.svelte";
+  import LanguageGraphs from "components/LanguageGraphs.svelte";
   import DownloadResume from "components/DownloadResume.svelte";
   import ProfilePicture from "components/ProfilePicture.svelte";
+  import ProgrammingGraphs from "components/ProgrammingGraphs.svelte";
 
   const INFO = [
     ["Residence", "Mexico"],
     ["Age", Math.floor((Date.now() - (new Date("jan 28, 1997")).getTime()) / 1000 / 60 / 60 / 24 / 30 / 12)],
   ];
 
-  const LANGUAGES = [["Spanish", 100], ["English", 100]] as const;
-
   const WORK = [
     ["maestro", "Worked at Maestro Interactive for 3 years"],
     ["paxico", "Worked at Paxico Technologies for 5 years"],
     ["elephant", "Worked as a freelance for 2 years"],
   ] as const;
-
-  const PROGRAMMING = [
-    ["Typescript / Javascript", 100],
-    ["CSS / SASS", 100],
-    ["Rust", 80],
-    ["Python / Mojo", 80],
-  ] as const;
-
-  const FRAMEWORKS = [
-    ["React / Svelte", 100],
-    ["SvelteKit / Next.js", 100],
-    ["Express / Koa", 80],
-    ["Axum / Rocket", 80],
-    ["MongoDB / SQL", 80],
-  ] as const;
-
-  const TOOLS = [
-    "Vite, Webpack, Gulp",
-    "Tailwind, Styled components, Emotion, MUI",
-    "Deno, Node",
-    "Firebase",
-    "Jest",
-    "Storybook",
-    "REST, GraphQL",
-    "SEO, SSR, serverless",
-    "Figma",
-  ];
 </script>
 
 <aside class="Sidebar">
@@ -66,11 +38,7 @@
       </div>
     {/each}
     <Divider />
-      <div class="Sidebar__languages">
-        {#each LANGUAGES as [label, progress]}
-          <ProgressRing {label} {progress} />
-        {/each}
-      </div>
+    <LanguageGraphs />
     <Divider />
     {#each WORK as [name, description]}
       <div class="Sidebar__work">
@@ -79,17 +47,11 @@
       </div>
     {/each}
     <Divider />
-    {#each PROGRAMMING as [label, progress]}
-      <ProgressBar {label} {progress} />
-    {/each}
+    <ProgrammingGraphs />
     <Divider />
-    {#each FRAMEWORKS as [label, progress]}
-      <ProgressBar {label} {progress} />
-    {/each}
+    <FrameworkGraphs />
     <Divider />
-    {#each TOOLS as label}
-      <IconLabel icon="checkmark" {label} />
-    {/each}
+    <ToolList />
   </section>
 </aside>
 
@@ -142,15 +104,6 @@
           display: flex;
           justify-content: space-between;
           color: var(--color-light);
-      }
-
-      &__languages {
-        display: flex;
-        gap: var(--spacing-nm-100);
-        justify-content: center;
-        & :global(.ProgressRing) {
-          flex: 0;
-        }
       }
 
       &__work {

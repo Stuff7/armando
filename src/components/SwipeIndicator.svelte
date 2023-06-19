@@ -3,7 +3,7 @@
 </script>
 
 <div class="SwipeIndicator">
-  <Icon name="chevron" /><slot /><Icon name="chevron" />
+  <Icon name="chevron" /><slot>Swipe</slot><Icon name="chevron" />
 </div>
 
 <style lang="scss">
@@ -13,6 +13,7 @@
     align-items: center;
     width: 100%;
     margin-bottom: 5vh;
+    color: white;
     font-size: var(--p-md-300);
     --icon-size: var(--spacing-lg-100);
     --icon-color: var(--color-accent-1);

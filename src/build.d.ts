@@ -1,4 +1,5 @@
 type IconName = "arrow" |
+"birthday-cake" |
 "chat-bubble-filled" |
 "checkmark" |
 "chevron" |
@@ -9,11 +10,13 @@ type IconName = "arrow" |
 "github" |
 "linkedin" |
 "loading" |
+"location" |
 "maestro" |
 "paxico" |
 "phone" |
 "playground" |
 "portfolio" |
+"profile" |
 "svelte-plain" |
 "tetris" |
 "triangle-exclamation";

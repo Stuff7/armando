@@ -1,6 +1,6 @@
 <script lang="ts">
   export let progress = 85;
-  export let size = "var(--area-sm-50)";
+  export let size = "calc(var(--area-sm-50) * 1.3)";
   export let label = "";
 
   $: degreesRight = progress / 100 * 360;
@@ -44,7 +44,6 @@
       position: relative;
       text-align: center;
       line-height: var(--size);
-      margin: calc(var(--size) / 10);
     }
 
     &__progress {

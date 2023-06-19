@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   import Background from "components/Background.svelte";
   import Content from "components/Content.svelte";
-  import MobileContent from "components/MobileContent.svelte";
+  import MobileContent from "components/mobile/Content.svelte";
   import PortalLayer from "components/PortalLayer.svelte";
   import Sidebar from "components/Sidebar.svelte";
 </script>
@@ -31,7 +31,7 @@
     }
 
     @include media.smaller-than(desktop-sm) {
-      background: var(--color-accent-1);
+      background: var(--color-accent-2);
       z-index: -3;
     }
   }

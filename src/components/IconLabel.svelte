@@ -15,5 +15,6 @@
     gap: var(--spacing-nm-100);
     color: white;
     align-items: center;
+    flex-flow: var(--icon-label-flow, row);
   }
 </style>

@@ -5,21 +5,21 @@
   import SwipeIndicator from "components/SwipeIndicator.svelte";
 </script>
 
-<article class="MobileContent">
+<article class="Home">
   <ProfilePicture />
-  <section class="MobileContent__info">
-    <h1 class="MobileContent__title">
+  <section class="Home__info">
+    <h1 class="Home__title">
       <p>Hi.</p>
       <p>I'm <strong>Armando</strong></p>
       <strong>Muñoz</strong>
     </h1>
-    <p class="MobileContent__subtitle">Software Engineer</p>
-    <summary class="MobileContent__summary">
+    <p class="Home__subtitle">Software Engineer</p>
+    <summary class="Home__summary">
       Expert in web dev, UI/UX, back-end services, and more.
     </summary>
   </section>
-  <div class="MobileContent__body">
-    <div class="MobileContent__contact">
+  <div class="Home__body">
+    <div class="Home__contact">
       <Contact iconSize="calc(var(--area-sm-50) * 0.7)" />
       <DownloadResume />
     </div>
@@ -31,11 +31,9 @@
   @use "style/misc";
   @use "style/media";
 
-  .MobileContent {
-    display: none;
+  .Home {
     @include media.smaller-than(desktop-sm) {
       display: flex;
-      scroll-snap-align: center;
       flex-direction: column;
       align-items: center;
       gap: calc(var(--spacing-lg-200) * 1.3);
@@ -44,8 +42,6 @@
       backdrop-filter: blur(1.5px);
       color: white;
       padding: var(--spacing-lg-200);
-      height: 100vh;
-      min-height: 100%;
       @include misc.shadow;
       --profile-picture-width: var(--area-lg-100);
 
