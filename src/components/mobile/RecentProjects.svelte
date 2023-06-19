@@ -23,7 +23,6 @@
   .RecentProjects {
     display: flex;
     flex-direction: column;
-    padding-bottom: var(--spacing-lg-100);
     gap: var(--spacing-lg-100);
     flex: 1;
     justify-content: center;

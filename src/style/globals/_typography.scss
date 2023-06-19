@@ -1,5 +1,6 @@
 @use "style/font";
 @use "style/misc";
+@use "style/media";
 
 @include font.load-font("JosefinSans", $blacklist: (800, 900), $font-family: "Josefin Sans");
 @include font.load-single-style-font("MarckScript", $font-family: "Marck Script");
@@ -58,6 +59,19 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
 
   --font-title: "Marck Script", #{$fallback-fonts};
   --font-body: "Josefin Sans", #{$fallback-fonts};
+
+  @include media.smaller-than(phone) {
+    --spacing-lg-200: #{clamp(misc.rem(20), 3vw, misc.rem(36))};
+    --spacing-lg-100: #{clamp(misc.rem(20), 2vw, misc.rem(30))};
+    --spacing-md-300: #{clamp(misc.rem(16), 1vw, misc.rem(24))};
+    --spacing-md-200: #{clamp(misc.rem(12), 0.5vw, misc.rem(20))};
+    --spacing-md-100: #{clamp(misc.rem(10), 0.4vw, misc.rem(16))};
+    --spacing-nm-200: #{clamp(misc.rem(9), 0.3vw, misc.rem(15))};
+    --spacing-nm-100: #{clamp(misc.rem(6), 0.1vw, misc.rem(8))};
+    --spacing-sm-100: #{clamp(misc.rem(6), 0.05vw, misc.rem(9))};
+    --spacing-sm-50: #{clamp(misc.rem(6), 0.03vw, misc.rem(8))};
+    --spacing-sm-25: #{clamp(misc.rem(5), 0.02vw, misc.rem(7))};
+  }
 }
 
 h6 {

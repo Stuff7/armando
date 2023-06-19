@@ -51,7 +51,7 @@
         gap: var(--spacing-lg-100);
         border-radius: var(--mobile-slide-radius, var(--radius-lg-100) var(--radius-lg-100) 0 0);
         background: var(--color-dark);
-        padding: var(--mobile-slide-padding, calc(var(--spacing-lg-100) * 1.5) var(--spacing-lg-100) 0 var(--spacing-lg-100));
+        padding: var(--mobile-slide-padding, calc(var(--spacing-lg-100) * 1.5) var(--spacing-lg-100));
         --language-graphs-direction: column;
       }
     }

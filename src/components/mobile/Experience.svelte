@@ -36,6 +36,7 @@
 
 <style lang="scss">
   .Experience {
+    padding-bottom: calc(var(--spacing-lg-100) * 1.5);
     --select-width: 100%;
     --select-border: var(--spacing-sm-50) solid var(--color-dark);
     --select-border-radius: var(--radius-lg-100);
