@@ -20,26 +20,32 @@ $breakpoints-max: $breakpoints-px;
   $breakpoints-max: map.set($breakpoints-max, #{$device}, misc.em($px - 0.02));
 }
 
-@mixin query($breakpoints, $device, $rule) {
+@mixin query($breakpoints, $device, $rule, $landscape: false) {
   $size: map.get($breakpoints, $device);
 
   @if $size == null {
     @error "#{device} is not a valid device";
   }
 
-  @media (#{$rule}: $size) {
-    @content;
+  @if $landscape {
+    @media screen and (orientation: landscape) and (#{$rule}: $size) {
+      @content;
+    }
+  } @else {
+    @media (#{$rule}: $size) {
+      @content;
+    }
   }
 }
 
-@mixin larger-than($device) {
-  @include query($breakpoints-min, $device, min-width) {
+@mixin larger-than($device, $landscape: false) {
+  @include query($breakpoints-min, $device, min-width, $landscape) {
     @content;
   };
 }
 
-@mixin smaller-than($device) {
-  @include query($breakpoints-max, $device, max-width) {
+@mixin smaller-than($device, $landscape: false) {
+  @include query($breakpoints-max, $device, max-width, $landscape) {
     @content;
   };
 }

@@ -12,35 +12,49 @@
   <svelte:fragment slot="header">
     <p>My <strong>Experience</strong></p>
   </svelte:fragment>
-  <div class="Experience" slot="content">
-    <Select options={EXPERIENCE} labelKey="company" valueKey="company" bind:selected>
-      <div class="Experience__select">
-        <strong class="Experience__job-title">{selected.jobTitle}</strong>
-        <p class="Experience__company">@{selected.company}</p>
-        <p class="Experience__years">
-          {getYearRange(selected.startDate, selected.endDate)}
-          <small>{getYearsElapsed(selected.startDate, selected.endDate)} years</small>
-        </p>
-        <p class="Experience__location">{selected.location}</p>
-      </div>
-    </Select>
+  <svelte:fragment slot="content">
+    <div class="Experience__select-wrapper">
+      <Select
+        options={EXPERIENCE}
+        labelKey="company"
+        valueKey="company"
+        bind:selected
+      >
+        <div class="Experience__select">
+          <strong class="Experience__job-title">{selected.jobTitle}</strong>
+          <p class="Experience__company">@{selected.company}</p>
+          <p class="Experience__years">
+            {getYearRange(selected.startDate, selected.endDate)}
+            <small>{getYearsElapsed(selected.startDate, selected.endDate)} years</small>
+          </p>
+          <p class="Experience__location">{selected.location}</p>
+        </div>
+      </Select>
+    </div>
     <ul class="Experience__summary">
       {#each selected.bulletPoints as point}
         <li class="Experience__point"><Icon name="chevron" /><p>{point}</p></li>
       {/each}
     </ul>
-  </div>
+  </svelte:fragment>
 </MobileSlide>
 
 <style lang="scss">
+  @use "style/media";
+
   .Experience {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg-100);
-    --select-width: 100%;
-    --select-border: var(--spacing-sm-50) solid var(--color-dark);
-    --select-border-radius: var(--radius-lg-100);
-    --swipe-indicator-padding: 0 var(--spacing-lg-100);
+    &__select-wrapper {
+      display: flex;
+      align-items: center;
+
+      & :global(.Select) {
+        grid-area: left;
+        --select-width: 100%;
+        --select-border: var(--spacing-sm-50) solid var(--color-dark);
+        --select-border-radius: var(--radius-lg-100);
+        --swipe-indicator-padding: 0 var(--spacing-lg-100);
+      }
+    }
 
     &__select {
       display: flex;
@@ -84,6 +98,15 @@
       --icon-transform: rotate(90deg);
       --icon-color: var(--color-accent-2);
       --icon-size: var(--spacing-lg-100);
+    }
+
+    @include media.smaller-than(desktop-sm, $landscape: true) {
+      &__summary {
+        justify-content: center;
+        font-size: var(--h-nm-100);
+        gap: var(--spacing-nm-100);
+        grid-area: right;
+      }
     }
   }
 </style>

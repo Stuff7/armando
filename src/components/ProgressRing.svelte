@@ -1,6 +1,5 @@
 <script lang="ts">
   export let progress = 85;
-  export let size = "calc(var(--area-sm-50) * 1.3)";
   export let label = "";
 
   $: degreesRight = progress / 100 * 360;
@@ -11,7 +10,6 @@
   class="ProgressRing"
   style:--progress-ring__degrees-left="{degreesLeft}deg"
   style:--progress-ring__degrees-right="{degreesRight}deg"
-  style:--progress-ring-size={size}
 >
   <div class="ProgressRing__ring">
     <span class="ProgressRing__progress">{progress}%</span>
@@ -28,7 +26,7 @@
 
 <style lang="scss">
   .ProgressRing {
-    --size: var(--progress-ring-size, 200px);
+    --size: var(--progress-ring-size, calc(var(--area-sm-50) * 1.3));
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -75,6 +75,13 @@
         top: 38vh;
       }
     }
+
+    @include media.smaller-than(desktop-sm, $landscape: true) {
+      &__logo {
+        right: 10vw;
+        top: 12vh;
+      }
+    }
   }
 
   .waves {

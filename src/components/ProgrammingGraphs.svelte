@@ -9,7 +9,11 @@
   ] as const;
 </script>
 
-<section class="ProgrammingGraphs">
+<script lang="ts">
+  export let style: Option<string> = null;
+</script>
+
+<section class="ProgrammingGraphs" {style}>
   {#each PROGRAMMING as [label, progress]}
     <ProgressBar {label} {progress} />
   {/each}
@@ -19,6 +23,7 @@
   .ProgrammingGraphs {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: var(--spacing-nm-100);
   }
 </style>

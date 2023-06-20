@@ -10,34 +10,62 @@
   <svelte:fragment slot="header">
     <p>My <strong>recent projects</strong></p>
   </svelte:fragment>
-  <div slot="content" class="RecentProjects">
-    <Carousel items={PROJECTS} visibleCount={1} let:props>
-      <ProjectCard {...props} />
-    </Carousel>
-    <h1>Download <strong>my resume</strong> for more.</h1>
-    <DownloadResume showContact />
-  </div>
+  <svelte:fragment slot="content">
+    <div class="RecentProjects__carousel">
+      <Carousel items={PROJECTS} visibleCount={1} let:props>
+        <ProjectCard {...props} />
+      </Carousel>
+    </div>
+    <div class="RecentProjects__download">
+      <h1>Download <strong>my resume</strong> for more.</h1>
+      <DownloadResume showContact />
+    </div>
+  </svelte:fragment>
 </MobileSlide>
 
 <style lang="scss">
-  .RecentProjects {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg-100);
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+  @use "style/media";
 
-    & :global(.Carousel) {
-      max-width: 100%;
+  .RecentProjects {
+    &__carousel {
+      display: flex;
+      align-items: center;
+
+      & :global(.Carousel) {
+        max-width: 100%;
+      }
     }
 
-    h1 {
-      color: white;
-      font-size: var(--h-lg-200);
-      text-align: center;
-      strong {
-        color: var(--color-accent-1);
+    &__download {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-nm-100);
+      h1 {
+        color: white;
+        font-size: var(--h-lg-200);
+        text-align: center;
+        strong {
+          color: var(--color-accent-1);
+        }
+      }
+    }
+
+    @include media.smaller-than(desktop-sm, $landscape: true) {
+      &__carousel {
+        max-width: 50vw;
+        grid-area: left;
+      }
+
+      &__download {
+        grid-area: right;
+        justify-content: center;
+        --download-resume-font-size: var(--p-nm-200);
+        --download-resume-icon-size: calc(var(--area-sm-50) * 0.5);
+        --download-resume-padding: var(--spacing-nm-100);
+
+        h1 {
+          font-size: var(--h-md-100);
+        }
       }
     }
   }

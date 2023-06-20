@@ -5,12 +5,12 @@
 
 @keyframes point-up {
   0% {
-    transform: translateY(-10%);
+    translate: 0 -10%;
   }
   50% {
-    transform: translateY(10%);
+    translate: 0 10%;
   }
   100% {
-    transform: translateY(-10%);
+    translate: 0 -10%;
   }
 }

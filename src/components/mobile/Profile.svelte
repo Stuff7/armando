@@ -20,9 +20,9 @@
         <IconLabel icon="birthday-cake" label="26yo" />
       </div>
       <Divider compact vertical />
-      <LanguageGraphs />
+      <LanguageGraphs style="--progress-ring-size: var(--area-sm-50)" />
     </div>
-    <ProgrammingGraphs />
+    <ProgrammingGraphs style="grid-area: right" />
   </svelte:fragment>
 </MobileSlide>
 
@@ -37,6 +37,7 @@
         justify-content: flex-end;
         align-items: center;
         gap: var(--spacing-nm-200);
+        grid-area: left;
         --language-graphs-direction: column;
         --icon-size: calc(var(--area-nm-100) * 0.8);
         --icon-color: white;
@@ -53,6 +54,12 @@
         gap: var(--spacing-lg-100);
         --icon-label-flow: row-reverse;
         --icon-size: var(--spacing-lg-100);
+      }
+    }
+
+    @include media.smaller-than(desktop-sm, $landscape: true) {
+      &__info {
+        --icon-size: calc(var(--area-nm-100) * 0.5);
       }
     }
   }

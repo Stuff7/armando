@@ -10,7 +10,11 @@
   ] as const;
 </script>
 
-<section class="FrameworkGraphs">
+<script lang="ts">
+  export let style: Option<string> = null;
+</script>
+
+<section class="FrameworkGraphs" {style}>
   {#each FRAMEWORKS as [label, progress]}
     <ProgressBar {label} {progress} />
   {/each}
@@ -20,6 +24,7 @@
   .FrameworkGraphs {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: var(--spacing-nm-100);
   }
 </style>

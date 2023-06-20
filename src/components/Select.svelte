@@ -7,11 +7,12 @@
   export let labelKey = "label" as keyof SelectOption;
   export let valueKey = "value" as keyof SelectOption;
   export let selected = options[selectedIndex];
+  export let style: Option<string> = null;
 
   $: selected = options[selectedIndex];
 </script>
 
-<div class="Select">
+<div class="Select" {style}>
   {#if options.length}
     <select bind:value={selectedIndex}>
       {#each options as option, i}

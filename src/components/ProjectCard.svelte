@@ -34,6 +34,8 @@
 </article>
 
 <style lang="scss">
+  @use "style/media";
+
   .ProjectCard {
     display: flex;
     flex-direction: column;
@@ -106,6 +108,26 @@
           width: var(--spacing-nm-100);
           height: var(--spacing-nm-100);
         }
+      }
+    }
+
+    @include media.smaller-than(desktop-sm, $landscape: true) {
+      gap: var(--spacing-nm-100);
+
+      &__info {
+        gap: 0;
+        font-size: var(--p-nm-100);
+        h1, h2 {
+          font-size: var(--h-nm-100);
+        }
+      }
+
+      &__logo {
+        --icon-size: calc(var(--area-sm-50) * 0.5);
+      }
+
+      &__sources {
+        font-size: var(--p-nm-100);
       }
     }
   }

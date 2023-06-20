@@ -4,7 +4,11 @@
   const LANGUAGES = [["Spanish", 100], ["English", 100]] as const;
 </script>
 
-<section class="LanguageGraphs">
+<script lang="ts">
+  export let style: Option<string> = null;
+</script>
+
+<section class="LanguageGraphs" {style}>
   {#each LANGUAGES as [label, progress]}
     <ProgressRing {label} {progress} />
   {/each}

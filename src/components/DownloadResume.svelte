@@ -6,7 +6,7 @@
 
 <div class="DownloadResume">
   {#if showContact}
-    <Contact iconSize="calc(var(--area-sm-50) * 0.7)" />
+    <Contact iconSize="var(--download-resume-icon-size, calc(var(--area-sm-50) * 0.7))" />
   {/if}
   <a
     class="DownloadResume__button"
@@ -23,8 +23,8 @@
   .DownloadResume {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 100%;
+    height: max-content;
 
     &__button {
       display: block;
@@ -39,8 +39,8 @@
       &.contact {
         border-radius: 0 0 var(--radius-nm-100) var(--radius-nm-100);
         width: 100%;
-        font-size: var(--h-md-100);
-        padding: var(--spacing-md-200);
+        font-size: var(--download-resume-font-size, var(--h-md-100));
+        padding: var(--download-resume-padding, var(--spacing-md-200));
       }
 
       &:hover {

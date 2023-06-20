@@ -5,18 +5,22 @@
 </script>
 
 <article class="Home">
-  <ProfilePicture />
-  <section class="Home__info">
-    <h1 class="Home__title">
-      <p>Hi.</p>
-      <p>I'm <strong>Armando</strong></p>
-      <strong>Muñoz</strong>
-    </h1>
-    <p class="Home__subtitle">Software Engineer</p>
-    <summary class="Home__summary">
-      Expert in web dev, UI/UX, back-end services, and more.
-    </summary>
-  </section>
+  <div class="Home__profile">
+    <ProfilePicture />
+    <section class="Home__info">
+      <h1 class="Home__title">
+        <div class="Home__name">
+          <p>Hi. &nbsp;</p>
+          <p>I'm <strong>Armando</strong></p>
+        </div>
+        <strong>Muñoz</strong>
+      </h1>
+      <p class="Home__subtitle">Software Engineer</p>
+      <summary class="Home__summary">
+        Expert in web dev, UI/UX, back-end services, and more.
+      </summary>
+    </section>
+  </div>
   <div class="Home__body">
     <DownloadResume showContact />
     <SwipeIndicator>Or swipe for more...</SwipeIndicator>
@@ -41,6 +45,14 @@
       @include misc.shadow;
       --profile-picture-width: var(--area-lg-100);
 
+      &__profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calc(var(--spacing-lg-200) * 1.3);
+        width: 100%;
+      }
+
       &__info {
         display: flex;
         flex-direction: column;
@@ -60,6 +72,11 @@
         }
       }
 
+      &__name {
+        display: flex;
+        flex-direction: column;
+      }
+
       &__subtitle {
         font-family: var(--font-title);
         font-weight: bold;
@@ -67,9 +84,9 @@
       }
 
       &__summary {
-          font-size: calc(var(--h-md-200) * 0.85);
-          max-width: 60vw;
-        }
+        font-size: calc(var(--h-md-200) * 0.85);
+        max-width: 60vw;
+      }
 
       &__body {
         display: flex;
@@ -89,6 +106,46 @@
     @include media.smaller-than(phone) {
       & :global(.ProfilePicture) {
         max-width: 25vh;
+      }
+    }
+
+    @include media.smaller-than(desktop-sm, $landscape: true) {
+      align-items: start;
+      justify-content: space-between;
+
+      &__profile {
+        flex-direction: row;
+        max-width: 60vw;
+        gap: var(--spacing-nm-100);
+      }
+
+      &__body {
+        flex-direction: row;
+        margin-top: 0;
+        flex: 0;
+        --download-resume-font-size: var(--p-nm-100);
+        --download-resume-icon-size: calc(var(--area-sm-50) * 0.5);
+        --download-resume-padding: var(--spacing-nm-100);
+      }
+
+      &__info {
+        gap: var(--spacing-sm-50);
+      }
+
+      &__title {
+        font-size: calc(var(--h-lg-200) * 0.6);
+      }
+
+      &__name {
+        flex-direction: row;
+      }
+
+      &__subtitle {
+        font-size: calc(var(--h-lg-100) * 0.6);
+      }
+
+      &__summary {
+        font-size: calc(var(--h-md-200) * 0.6);
       }
     }
   }
