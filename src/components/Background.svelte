@@ -69,6 +69,12 @@
         top: 48vh;
       }
     }
+
+    @include media.smaller-than(phone) {
+      &__logo {
+        top: 38vh;
+      }
+    }
   }
 
   .waves {

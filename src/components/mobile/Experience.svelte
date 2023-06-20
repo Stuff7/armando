@@ -2,14 +2,13 @@
   import MobileSlide from "components/mobile/Slide.svelte";
   import Select from "components/Select.svelte";
   import Icon from "components/Icon.svelte";
-  import SwipeIndicator from "components/SwipeIndicator.svelte";
   import { EXPERIENCE } from "components/Content.svelte";
   import { getYearRange, getYearsElapsed } from "utils/date";
 
   let selected = EXPERIENCE[0];
 </script>
 
-<MobileSlide padding="0" hideSwipe>
+<MobileSlide>
   <svelte:fragment slot="header">
     <p>My <strong>Experience</strong></p>
   </svelte:fragment>
@@ -30,13 +29,14 @@
         <li class="Experience__point"><Icon name="chevron" /><p>{point}</p></li>
       {/each}
     </ul>
-    <SwipeIndicator />
   </div>
 </MobileSlide>
 
 <style lang="scss">
   .Experience {
-    padding-bottom: calc(var(--spacing-lg-100) * 1.5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg-100);
     --select-width: 100%;
     --select-border: var(--spacing-sm-50) solid var(--color-dark);
     --select-border-radius: var(--radius-lg-100);
@@ -70,7 +70,6 @@
       display: flex;
       flex-direction: column;
       gap: var(--spacing-lg-100);
-      padding: var(--spacing-lg-100);
       list-style-type: none;
       color: white;
       font-size: var(--h-md-100);

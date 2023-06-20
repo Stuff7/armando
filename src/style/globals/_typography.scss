@@ -44,6 +44,7 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
   --area-xl-100: #{clamp(misc.rem(1024), 100vw, misc.rem(2048))};
   --area-lg-200: #{clamp(misc.rem(420), 90vw, misc.rem(550))};
   --area-lg-100: #{clamp(misc.rem(320), 75vw, misc.rem(500))};
+  --area-nm-200: #{clamp(misc.rem(150), 35vw, misc.rem(380))};
   --area-nm-100: #{clamp(misc.rem(130), 25vw, misc.rem(360))};
   --area-nm-50: #{clamp(misc.rem(100), 15vw, misc.rem(320))};
   --area-sm-100: #{clamp(misc.rem(70), 10vw, misc.rem(300))};
@@ -62,6 +63,27 @@ $fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
     --spacing-nm-100: #{clamp(misc.rem(6), 0.1vw, misc.rem(8))};
     --spacing-sm-100: #{clamp(misc.rem(6), 0.05vw, misc.rem(9))};
     --spacing-sm-50: #{clamp(misc.rem(6), 0.03vw, misc.rem(8))};
+  }
+
+  @include media.smaller-than(phone-s) {
+    --h-nm-100: #{clamp(misc.rem(12), 0.8vw, misc.rem(16))};
+    --h-nm-200: #{clamp(misc.rem(13), 1vw, misc.rem(17))};
+    --h-nm-300: #{clamp(misc.rem(14), 1.3vw, misc.rem(18))};
+    --h-md-100: #{clamp(misc.rem(16), 1.5vw, misc.rem(19))};
+    --h-md-200: #{clamp(misc.rem(18), 2vw, misc.rem(20))};
+    --h-lg-100: #{clamp(misc.rem(20), 3vw, misc.rem(24))};
+    --h-lg-200: #{clamp(misc.rem(24), 4vw, misc.rem(28))};
+    --h-lg-300: #{clamp(misc.rem(28), 5vw, misc.rem(32))};
+
+    --spacing-lg-200: #{clamp(misc.rem(16), 2vw, misc.rem(26))};
+    --spacing-lg-100: #{clamp(misc.rem(15), 1vw, misc.rem(22))};
+    --spacing-md-300: #{clamp(misc.rem(12), 0.5vw, misc.rem(16))};
+    --spacing-md-200: #{clamp(misc.rem(10), 0.4vw, misc.rem(15))};
+    --spacing-md-100: #{clamp(misc.rem(9), 0.3vw, misc.rem(13))};
+    --spacing-nm-200: #{clamp(misc.rem(8), 0.2vw, misc.rem(12))};
+    --spacing-nm-100: #{clamp(misc.rem(7), 0.1vw, misc.rem(10))};
+    --spacing-sm-100: #{clamp(misc.rem(5), 0.03vw, misc.rem(7))};
+    --spacing-sm-50: #{clamp(misc.rem(4), 0.02vw, misc.rem(6))};
   }
 }
 

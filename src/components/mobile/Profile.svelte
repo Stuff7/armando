@@ -37,6 +37,7 @@
         justify-content: flex-end;
         align-items: center;
         gap: var(--spacing-nm-200);
+        --language-graphs-direction: column;
         --icon-size: calc(var(--area-nm-100) * 0.8);
         --icon-color: white;
 

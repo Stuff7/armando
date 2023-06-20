@@ -20,7 +20,6 @@
   main {
     width: 100%;
     max-width: var(--area-xl-100);
-    margin-inline: auto;
     position: relative;
 
     @include media.larger-than(desktop-sm) {
@@ -28,6 +27,7 @@
       grid-template: "a b" 1fr / max-content 1fr;
       gap: var(--spacing-lg-200);
       padding: var(--spacing-lg-200);
+      margin-inline: auto;
     }
 
     @include media.smaller-than(desktop-sm) {

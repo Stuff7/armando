@@ -78,10 +78,17 @@
         justify-content: space-between;
         width: 100%;
         gap: var(--spacing-md-200);
+        margin-top: var(--spacing-md-100);
       }
 
       & :global(.ProfilePicture) {
         max-width: 35vh;
+      }
+    }
+
+    @include media.smaller-than(phone) {
+      & :global(.ProfilePicture) {
+        max-width: 25vh;
       }
     }
   }

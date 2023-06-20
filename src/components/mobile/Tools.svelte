@@ -6,8 +6,7 @@
 
 <MobileSlide>
   <svelte:fragment slot="header">
-    <p>I've used these <strong>tools and </strong></p>
-    <strong>frameworks</strong>
+    <p>I've used these <strong>tools and frameworks</strong></p>
   </svelte:fragment>
   <svelte:fragment slot="content">
     <FrameworkGraphs />
