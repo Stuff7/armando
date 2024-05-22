@@ -1,0 +1,11 @@
+@use "style/color";
+
+:root {
+  @include color.define-hex(--color-dark, #1E1E28);
+  @include color.define-hex(--color-light, #D9D9D9);
+  @include color.define-hex(--color-accent-1, #EC1D25);
+  @include color.define-hex(--color-accent-2, #E4E0B4);
+  @include color.define-hex(--color-accent-3, #94E094);
+  @include color.define-hex(--color-surface-1, #292933);
+  @include color.define-hex(--color-surface-2, #171717);
+}

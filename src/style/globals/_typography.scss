@@ -1,0 +1,127 @@
+@use "style/font";
+@use "style/misc";
+@use "style/media";
+
+@include font.load-font("JosefinSans", $blacklist: (800, 900), $font-family: "Josefin Sans");
+@include font.load-single-style-font("MarckScript", $font-family: "Marck Script");
+
+$fallback-fonts: Consolas, Courier, Inter, Avenir, Helvetica, Arial, sans-serif;
+
+:root {
+  --h-nm-100: #{clamp(misc.rem(14), 1vw, misc.rem(24))};
+  --h-nm-200: #{clamp(misc.rem(16), 1.5vw, misc.rem(26))};
+  --h-nm-300: #{clamp(misc.rem(20), 1.7vw, misc.rem(30))};
+  --h-md-100: #{clamp(misc.rem(20), 2.5vw, misc.rem(38))};
+  --h-md-200: #{clamp(misc.rem(24), 3vw, misc.rem(26))};
+  --h-lg-100: #{clamp(misc.rem(28), 4vw, misc.rem(30))};
+  --h-lg-200: #{clamp(misc.rem(34), 6vw, misc.rem(36))};
+  --h-lg-300: #{clamp(misc.rem(34), 6vw, misc.rem(50))};
+
+  --p-sm-100: #{clamp(misc.rem(11), 0.75vw, misc.rem(13))};
+  --p-nm-100: #{clamp(misc.rem(12), 1vw, misc.rem(16))};
+  --p-nm-200: #{clamp(misc.rem(14), 1.25vw, misc.rem(18))};
+  --p-md-100: #{clamp(misc.rem(16), 1.5vw, misc.rem(20))};
+  --p-md-200: #{clamp(misc.rem(18), 1.75vw, misc.rem(22))};
+  --p-md-300: #{clamp(misc.rem(20), 2vw, misc.rem(24))};
+
+  --svg-nm-100: #{clamp(misc.rem(16), 3vw, misc.rem(20))};
+
+  --spacing-lg-200: #{clamp(misc.rem(28), 5vw, misc.rem(48))};
+  --spacing-lg-100: #{clamp(misc.rem(28), 4vw, misc.rem(36))};
+  --spacing-md-300: #{clamp(misc.rem(24), 3vw, misc.rem(30))};
+  --spacing-md-200: #{clamp(misc.rem(20), 2vw, misc.rem(24))};
+  --spacing-md-100: #{clamp(misc.rem(16), 1.5vw, misc.rem(20))};
+  --spacing-nm-200: #{clamp(misc.rem(14), 1.25vw, misc.rem(16))};
+  --spacing-nm-100: #{clamp(misc.rem(12), 1vw, misc.rem(14))};
+  --spacing-sm-100: #{clamp(misc.rem(10), 0.8vw, misc.rem(12))};
+  --spacing-sm-50: #{clamp(misc.rem(6), 0.4vw, misc.rem(8))};
+
+  --radius-nm-100: #{clamp(misc.rem(5), 0.25vw, misc.rem(10))};
+  --radius-nm-200: #{clamp(misc.rem(8), 0.5vw, misc.rem(12))};
+  --radius-md-100: #{clamp(misc.rem(18), 1vw, misc.rem(28))};
+  --radius-lg-100: #{clamp(misc.rem(25), 4vw, misc.rem(35))};
+
+  --area-xl-100: #{clamp(misc.rem(1024), 100vw, misc.rem(2048))};
+  --area-lg-200: #{clamp(misc.rem(420), 90vw, misc.rem(550))};
+  --area-lg-100: #{clamp(misc.rem(320), 75vw, misc.rem(500))};
+  --area-nm-200: #{clamp(misc.rem(150), 35vw, misc.rem(380))};
+  --area-nm-100: #{clamp(misc.rem(130), 25vw, misc.rem(360))};
+  --area-nm-50: #{clamp(misc.rem(100), 15vw, misc.rem(320))};
+  --area-sm-100: #{clamp(misc.rem(70), 10vw, misc.rem(300))};
+  --area-sm-50: #{clamp(misc.rem(50), 3vw, misc.rem(100))};
+
+  --font-title: "Marck Script", #{$fallback-fonts};
+  --font-body: "Josefin Sans", #{$fallback-fonts};
+
+  @include media.smaller-than(phone) {
+    --spacing-lg-200: #{clamp(misc.rem(20), 3vw, misc.rem(36))};
+    --spacing-lg-100: #{clamp(misc.rem(20), 2vw, misc.rem(30))};
+    --spacing-md-300: #{clamp(misc.rem(16), 1vw, misc.rem(24))};
+    --spacing-md-200: #{clamp(misc.rem(12), 0.5vw, misc.rem(20))};
+    --spacing-md-100: #{clamp(misc.rem(10), 0.4vw, misc.rem(16))};
+    --spacing-nm-200: #{clamp(misc.rem(9), 0.3vw, misc.rem(15))};
+    --spacing-nm-100: #{clamp(misc.rem(6), 0.1vw, misc.rem(8))};
+    --spacing-sm-100: #{clamp(misc.rem(6), 0.05vw, misc.rem(9))};
+    --spacing-sm-50: #{clamp(misc.rem(6), 0.03vw, misc.rem(8))};
+  }
+
+  @include media.smaller-than(phone-s) {
+    --h-nm-100: #{clamp(misc.rem(12), 0.8vw, misc.rem(16))};
+    --h-nm-200: #{clamp(misc.rem(13), 1vw, misc.rem(17))};
+    --h-nm-300: #{clamp(misc.rem(14), 1.3vw, misc.rem(18))};
+    --h-md-100: #{clamp(misc.rem(16), 1.5vw, misc.rem(19))};
+    --h-md-200: #{clamp(misc.rem(18), 2vw, misc.rem(20))};
+    --h-lg-100: #{clamp(misc.rem(20), 3vw, misc.rem(24))};
+    --h-lg-200: #{clamp(misc.rem(24), 4vw, misc.rem(28))};
+    --h-lg-300: #{clamp(misc.rem(28), 5vw, misc.rem(32))};
+
+    --spacing-lg-200: #{clamp(misc.rem(16), 2vw, misc.rem(26))};
+    --spacing-lg-100: #{clamp(misc.rem(15), 1vw, misc.rem(22))};
+    --spacing-md-300: #{clamp(misc.rem(12), 0.5vw, misc.rem(16))};
+    --spacing-md-200: #{clamp(misc.rem(10), 0.4vw, misc.rem(15))};
+    --spacing-md-100: #{clamp(misc.rem(9), 0.3vw, misc.rem(13))};
+    --spacing-nm-200: #{clamp(misc.rem(8), 0.2vw, misc.rem(12))};
+    --spacing-nm-100: #{clamp(misc.rem(7), 0.1vw, misc.rem(10))};
+    --spacing-sm-100: #{clamp(misc.rem(5), 0.03vw, misc.rem(7))};
+    --spacing-sm-50: #{clamp(misc.rem(4), 0.02vw, misc.rem(6))};
+  }
+}
+
+h6 {
+  font-size: var(--h-nm-100);
+  font-weight: 700;
+}
+
+h5 {
+  font-size: var(--h-nm-200);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: var(--h-nm-300);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--h-md-100);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--h-md-200);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: var(--h-lg-100);
+  font-weight: 900;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-secondary-300);
+  text-decoration: inherit;
+  &:hover {
+    color: var(--color-primary-100-contrast);
+  }
+}

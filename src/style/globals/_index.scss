@@ -1,0 +1,72 @@
+@forward "color";
+@forward "keyframes";
+@forward "typography";
+
+@use "style/color";
+@use "style/misc";
+@use "style/media";
+
+:root {
+  box-sizing: border-box;
+  line-height: 1;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--color-secondary-900);
+  background-color: var(--color-secondary-100);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+  background: color.alpha(--color-accent-1, 0.5);
+}
+
+*, *::before, *::after {
+  @include misc.scrollbar(var(--color-accent-1));
+  font-family: var(--font-body);
+  box-sizing: inherit;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  @include media.smaller-than(desktop-sm) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  min-width: misc.rem(320);
+  height: 100%;
+  @include media.smaller-than(desktop-sm) {
+    z-index: -4;
+    position: relative;
+  }
+}
+
+button, [role=button] {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+input {
+  outline: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+dialog {
+  border: 0;
+}
